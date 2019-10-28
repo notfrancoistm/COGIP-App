@@ -1,9 +1,11 @@
 <?php
-require 'view/component/header-component.php';
-require 'view/component/menu-component.php';
+require 'component/header-component.php';
+require 'component/menu-component.php';
 ?>
 
 
+
+
 <?php 
-require 'view/component/footer-component.php';
+require 'component/footer-component.php';
 ?>
