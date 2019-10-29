@@ -1,9 +1,27 @@
 <?php
 session_start();
+
+// Database cennection
+function openConnection() {
+    $dbhost = "database";
+    $dbuser = "root";
+    $dbpass = "root";
+    $db = "<database_name>";
+
+    $pdo = new PDO("mysql:host=$dbhost;dbname=$db;charset=utf8",$dbuser,$dbpass);
+
+    return $pdo;
+}
+
+try {
+    $connect = openConnection();
+    if ($connect) echo "Connected to the <strong>$db</strong> database successfully!";
+}
+catch (PDOException $ex){
+    die($ex->getMessage());
+}
+
 ?>
-
-
-
 
 <!-- temporaire -->
 <?php
