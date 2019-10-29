@@ -3,8 +3,8 @@ session_start();
 ?>
 
 <?php
-require 'view/component/header-component.php';
-require 'view/component/menu-component.php';
+require __DIR__ . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'component' . DIRECTORY_SEPARATOR . 'header-component.php';
+require __DIR__ . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'component' . DIRECTORY_SEPARATOR . 'menu-component.php';
 ?>
 
 <?php
@@ -23,5 +23,5 @@ else {
 ?>
 
 <?php 
-require 'view/component/footer-component.php';
+require __DIR__ . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'component' . DIRECTORY_SEPARATOR . 'footer-component.php';
 ?>
