@@ -1,9 +1,16 @@
 body{
     height: 100%;
+    background-color: black;
+}
+
+img.logo {
+    width: 120px;
+    height: auto;
 }
 .btn-container {
-    width: 0,auto;
+    width: 0 auto;
     padding: 30px;
     text-align: center;
 }
+
 

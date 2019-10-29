@@ -1,7 +1,3 @@
-<?php 
-require 'component/header-component.php'; //temporary
-?>
-
 <div class="btn-container">
     <div class="btn-container-box">
         <button type="button" class="btn btn-outline-success ">Last invoice</button>
