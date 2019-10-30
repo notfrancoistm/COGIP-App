@@ -2,6 +2,7 @@
 session_start();
 
 // Database cennection
+/*
 function openConnection() {
     $dbhost = "database";
     $dbuser = "root";
@@ -20,6 +21,7 @@ try {
 catch (PDOException $ex){
     die($ex->getMessage());
 }
+*/
 ?>
 
 <!-- temporaire -->
