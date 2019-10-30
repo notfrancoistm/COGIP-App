@@ -2,9 +2,6 @@
 session_start();
 ?>
 
-
-
-
 <!-- temporaire -->
 <?php
 require 'view/component/header-component.php';
@@ -25,6 +22,7 @@ else {
     require 'controller/home-ctrl.php';
 }
 ?>
+<?php require 'view/contacts-create-view.php' ?>
 
 <?php 
 require 'view/component/footer-component.php';
