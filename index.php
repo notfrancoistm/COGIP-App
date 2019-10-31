@@ -6,7 +6,7 @@ function openConnection() {
     $dbhost = "database";
     $dbuser = "root";
     $dbpass = "root";
-    $db = "<database_name>";
+    $db = "cogip";
 
     $pdo = new PDO("mysql:host=$dbhost;dbname=$db;charset=utf8",$dbuser,$dbpass);
 
