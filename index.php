@@ -42,7 +42,7 @@ else {
     require 'controller/home-ctrl.php';
 }
 ?>
-<?php require 'view/contacts-create-view.php' ?>
+<?php require 'view/connexion-view.php' ?>
 
 <?php 
 require 'view/component/footer-component.php';
