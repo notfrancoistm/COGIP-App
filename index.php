@@ -36,13 +36,15 @@ if (!empty($_GET['page'])) {
     if (is_file($path)) {
         require $path;
     }
+    else {
+        echo "ERROR 404: $page not found";
+    }
 }
-else {
-    $page = 'home';
-    require 'controller/home-ctrl.php';
+else{
 }
+
 ?>
-<?php require 'view/connexion-view.php' ?>
+
 
 <?php 
 require 'view/component/footer-component.php';

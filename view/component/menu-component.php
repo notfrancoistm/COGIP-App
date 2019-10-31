@@ -5,10 +5,12 @@
     </button>
     <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="#">Invoices</a>
-        <a class="nav-item nav-link" href="#">Compagnies</a>
-        <a class="nav-item nav-link" href="#">Contacts</a>
+        <a class="nav-item nav-link active" href="?page=home">Home<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="?page=invoices">Invoices</a>
+        <a class="nav-item nav-link" href="?page=compagnies">Compagnies</a>
+        <a class="nav-item nav-link" href="?page=contacts">Contacts</a>
+
+
         <!-- ONLY for admin --> 
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Admin
