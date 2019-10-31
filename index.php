@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+<<<<<<< HEAD
 // Database cennection
 function openConnection() {
     $dbhost = "database";
@@ -23,6 +24,8 @@ catch (PDOException $ex){
 
 ?>
 
+=======
+>>>>>>> 0a6225eab91c24d0ae0d7c5a3640d6ba8f1f5a2f
 <!-- temporaire -->
 <?php
 require 'view/component/header-component.php';
@@ -43,6 +46,7 @@ else {
     require 'controller/home-ctrl.php';
 }
 ?>
+<?php require 'view/contacts-create-view.php' ?>
 
 <?php 
 require 'view/component/footer-component.php';
