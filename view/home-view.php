@@ -94,5 +94,4 @@ HTML;
     ?>
     <?= gen_table($titles, $datas) ?>
     
-
 </div>
