@@ -1,14 +1,26 @@
-<?php
-require 'component/header-component.php';
-?>
+<div class="row justify-content-center">
+    <div class="card text-center  col-md-8">
+        <h5 class="row card-header info-color py-3">
+        <strong class="login">Login</strong>
+        </h5>
+        <form class="login text-center" style="color: #757575;" action="#" method="post" name="login">
+            <div class="row justify-content-center">
+                <div class="col-md-5">
+                    <label for="username">Username</label>
+                    <input type="text" id="login" class="login-input" name="username" placeholder="login" autofocus>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-5">
+                    <label for="password">Password</label>
+                    <input type="text" id="password" class="login-input" name="password" placeholder="password">
+                </div>
+            </div>
+            <button type="submit" name="submit" class="btn btn-primary btn-rounded waves-effect" value="Login">Log in</button>
+        </form>
 
-<form class="login" action="" method="post" name="login">
-    <h1 class="login-title">Login</h1>
-    <input type="text" class="login-input" name="username" placeholder="Username" autofocus>
-    <input type="password" class="login-input" name="password" placeholder="Password">
-    <input type="submit" value="Login" name="submit" class="login-button">
-</form>
-
-<?php 
-require 'component/footer-component.php';
-?>
+        <div id="formFooter">
+            <a class="underlineHover" href="#">Forgot Password?</a>
+        </div>
+    </div>
+</div>
