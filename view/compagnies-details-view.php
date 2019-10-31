@@ -1,4 +1,4 @@
-<h1>detail of the compagny</h1>
+<h1>detail of the compagny page</h1>
 
 <div class="btn-container">
     <div class="btn-container-box">

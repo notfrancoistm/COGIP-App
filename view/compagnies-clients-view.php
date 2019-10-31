@@ -1,1 +1,1 @@
-<h1>companùy client page</h1>
+<h1>Company client list page</h1>
