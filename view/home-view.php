@@ -89,6 +89,8 @@ HTML;
             'last name',
             'email'
         ];
+
+        // $datas = from return from the database
     ?>
     <?= gen_table($titles, $datas) ?>
     
