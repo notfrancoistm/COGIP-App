@@ -78,11 +78,6 @@ HTML;
     </div>
 </div>
 
-<div class="container info-container">
-    <div class="btn-container-box">
-        ...
-    </div>
-
     <?php
         $titles = [
             'First name',
