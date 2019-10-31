@@ -1,12 +1,17 @@
 <?php
 session_start();
 
+//$_SESSION['rights'] = 'god';
+//unset($_SESSION);
+
+var_dump($_SESSION);
+
 // Database cennection
 function openConnection() {
     $dbhost = "database";
     $dbuser = "root";
     $dbpass = "root";
-    $db = "<database_name>";
+    $db = "cogip";
 
     $pdo = new PDO("mysql:host=$dbhost;dbname=$db;charset=utf8",$dbuser,$dbpass);
 
@@ -31,16 +36,22 @@ require 'view/component/menu-component.php';
 
 <?php
 // routing
-if (!empty($_GET['page'])) {
-    $page = trim(addslashes($_GET['page']));
-    $path = "controller/$page-ctrl.php";
-    if (is_file($path)) {
-        require $path;
+var_dump(preg_match('/modo|god/', $_SESSION['rights']));
+
+if (preg_match('/modo|god/', $_SESSION['rights'])) {
+    if (!empty($_GET['page'])) {
+        $page = trim(addslashes($_GET['page']));
+        $path = "controller/$page-ctrl.php";
+        if (is_file($path)) {
+            require $path;
+        }
+    }
+    else {
+        require 'controller/home-ctrl.php';
     }
 }
 else {
-    $page = 'home';
-    require 'controller/home-ctrl.php';
+    require 'controller/connexion-ctrl.php';
 }
 ?>
 <?php require 'view/contacts-create-view.php' ?>
