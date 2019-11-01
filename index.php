@@ -14,7 +14,7 @@ function openConnection() {
     $dbpass = "root";
     $db     = "cogip";
 
-    $pdo = new PDO("mysql:host=$dbhost;dbname=$db;charset=utf8",$dbuser,$dbpass);
+    $pdo = new PDO("mysql:host=$dbhost;dbname=$db;charset=utf8mb4",$dbuser,$dbpass);
 
     return $pdo;
 }

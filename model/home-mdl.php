@@ -1,6 +1,8 @@
 <?php
    //> Validation </////////////////////////////////
 
+   /* User input */
+
    function string_validation (string $input = ''): bool {
       $pattern = '/^[a-zA-Z ]{3,50}$/';
       return preg_match($pattern, trim($input)) ? true : false;
@@ -8,6 +10,11 @@
 
    function country_validation (string $input = ''): bool {
       $pattern = '/^[A-Z]{2} ?0[0-9]{3} ?[0-9]{3} ?[0-9]{3}$/';
+      return preg_match($pattern, trim($input)) ? true : false;
+   }
+   
+   function login_validation (string $input = ''): bool {
+      $pattern = '/^[a-zA-Z0-9_]{3,50}$/';
       return preg_match($pattern, trim($input)) ? true : false;
    }
 
@@ -30,65 +37,68 @@
       return preg_match($pattern, ucfirst(trim($input))) ? true : false;
    }
 
+   function id_validation (string $input = ''): bool {
+      $pattern = '/^[1-9][0-9]{0,50}$/';
+      return preg_match($pattern, trim($input)) ? true : false;
+   }
+
+   function table_validation (string $table_to_validat): bool {
+      global $pdo;
+      $table_to_validat = trim(strtolower($table_to_validat));
+
+      $stmt = $pdo->query("SHOW TABLES");
+
+      $all_tables = [];
+      while ($row = $stmt->fetch()) {
+         $all_tables[] = $row['Tables_in_cogip'];
+      }
+
+      $result = false;
+
+      foreach($all_tables as $table_name) {
+         if ($table_to_validat === $table_name) $result = true;
+      }
+
+      return $result;
+   }
+
    //> SQL Queries </////////////////////////////////
 
    /* GET */
 
-   function get_company (object $pdo, $id): array {
+   function get_by_id (string $table, $id): array {
+      global $pdo;
 
-      if (is_int($id)) $id = (string)$id;
+      $param = [
+         'id' => is_int($id) ? (string)$id : $id
+      ];
 
-      $param = ['id' => $id];
-
-      $stmt = $pdo->prepare("SELECT * FROM company WHERE id=:id");
+      $stmt = $pdo->prepare("SELECT * FROM $table WHERE id=:id");
       $stmt->execute($param); 
-      $user = $stmt->fetch();
+      $data = $stmt->fetch();
 
-      return $user;
+      return $data;
    }
 
-   function get_invoice (object $pdo, $id): array {
-      if (is_int($id)) $id = (string)$id;
+   function get_many (string $table, $limit = null): array {
+      global $pdo;
 
-      $param = ['id' => $id];
+      if ($limit) {
+         $param = [
+            'limit' => is_int($limit) ? (string)$limit : $limit
+         ];
+         
+         $stmt = $pdo->prepare("SELECT * FROM $table LIMIT :limit");
+         $stmt->execute($param);
+      }
+      else {
+         $stmt = $pdo->prepare("SELECT * FROM $table");
+         $stmt->execute();
+      }
 
-      $stmt = $pdo->prepare("SELECT * FROM invoices WHERE id=:id");
-      $stmt->execute($param); 
-      $user = $stmt->fetch();
+      $data = $stmt->fetchAll();
 
-      return $user;
-   }
-
-   function get_contact (object $pdo, $id): array {
-      if (is_int($id)) $id = (string)$id;
-
-      $param = ['id' => $id];
-
-      $stmt = $pdo->prepare("SELECT * FROM contacts WHERE id=:id");
-      $stmt->execute($param); 
-      $user = $stmt->fetch();
-
-      return $user;
-   }
-
-   function get_companies (object $pdo, $limit = '5'): array {
-      if (is_int($limit)) $limit = (string)$limit;
-
-      $param = ['limit' => $limit];
-
-      $stmt = $pdo->prepare("SELECT * FROM company LIMIT :limit");
-      $stmt->execute($param); 
-      $user = $stmt->fetchAll();
-
-      return $user;
-   }
-
-   function get_invoices (int $limit = 5) {
-
-   }
-
-   function get_contacts (int $limit = 5) {
-
+      return $data;
    }
 
    /* POST */
