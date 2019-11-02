@@ -12,16 +12,6 @@
       $pattern = '/^[A-Z]{2} ?0[0-9]{3} ?[0-9]{3} ?[0-9]{3}$/';
       return preg_match($pattern, trim($input)) ? true : false;
    }
-   
-   function login_validation (string $input = ''): bool {
-      $pattern = '/^[a-zA-Z0-9_]{3,50}$/';
-      return preg_match($pattern, trim($input)) ? true : false;
-   }
-
-   function password_validation (string $input = ''): bool {
-      $pattern = '/^[\S]{3,50}$/';
-      return preg_match($pattern, trim($input)) ? true : false;
-   }
 
    function email_validation (string $input = ''): bool {
       return filter_var(trim($input), FILTER_VALIDATE_EMAIL) ? true : false;
@@ -74,8 +64,8 @@
       ];
 
       $stmt = $pdo->prepare("SELECT * FROM $table WHERE id=:id");
-      $stmt->execute($param); 
-      $data = $stmt->fetch();
+      $stmt->execute($param);
+      $data = $stmt->fetch(); 
 
       return $data;
    }

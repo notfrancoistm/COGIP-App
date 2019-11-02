@@ -1,10 +1,11 @@
 <?php
 session_start();
 
-//$_SESSION['rights'] = 'god';
 //unset($_SESSION);
 
-var_dump($_SESSION);
+echo '<pre>';
+    var_dump($_SESSION['rights']);
+echo '</pre>';
 
 // Database connection
 
@@ -29,11 +30,12 @@ try {
 catch (PDOException $ex){
     die($ex->getMessage());
 }
-
 ?>
 
 <!-- temporaire -->
 <?php
+require 'session.php';
+
 // Header
 require 'view/component/header-component.php';
 ?>

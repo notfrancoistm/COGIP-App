@@ -3,7 +3,7 @@
         <h5 class="row card-header info-color py-3">
         <strong class="login">Login</strong>
         </h5>
-        <form class="login text-center" style="color: #757575;" action="#" method="post" name="login">
+        <form class="login text-center" style="color: #757575;" action="" method="post" name="login">
             <div class="row justify-content-center">
                 <div class="col-md-5">
                     <label for="username">Username</label>
