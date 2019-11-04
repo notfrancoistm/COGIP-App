@@ -1,8 +1,7 @@
 <?php
 session_start();
 
-//unset($_SESSION);
-
+$error = [];
 // Database connection
 
 function openConnection() {
@@ -38,8 +37,19 @@ require 'view/component/header-component.php';
 ?>
 
 <?php
+//unset($_SESSION);
+//session_destroy();
+
+echo '<pre>';
+   print_r($_POST);
+echo '</pre>';
+
+var_dump($_SESSION['rights']);
+
+echo $error['session'];
+
 // routing
-if (preg_match('/modo|god/', $_SESSION['rights'])) {
+if (preg_match('/modo|god/', $_SESSION['rights']) === 1) {
 
     // Menu
     require 'view/component/menu-component.php';
