@@ -6,6 +6,7 @@ $string_input = 'wail madrane';
 
 $invoices_data = get_many('invoices', 5);
 $contacts_data = get_many('contacts', 5);
+$companies_data = get_many('company', 5);
 
 echo '<pre>';
    print_r($contacts_data);
