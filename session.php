@@ -63,6 +63,7 @@ function authentification () {
 
       // if password is correct set $_SESSION['rights'] to user rights
       if ($pass_is_correct) {
+         $_SESSION['username'] = $user_data['login'];
          $_SESSION['rights'] = $user_data['rights'];
       }
       else {

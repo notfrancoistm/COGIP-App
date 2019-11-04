@@ -12,6 +12,7 @@
 
 
         <!-- ONLY for admin -->
+        <?php if ($_SESSION['rights'] === 'god') :?> 
         <div class="btn-group dropright">
         <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</button>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -21,7 +22,10 @@
             <a class="dropdown-item" href="?page=contacts-create">New contact</a>
           </div>
         </div>
+        <?php endif ?>
         <!---->
+
+        <a class="nav-item nav-link" href="?page=dashboard"><?=$_SESSION['username']?></a>
       </div>
     </div>
   </nav>

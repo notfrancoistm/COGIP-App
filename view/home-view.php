@@ -1,3 +1,8 @@
+<h3>
+    Bonjour <?=$_SESSION['username']?> !<br>
+    Que souhaitez-vous faire aujourd'hui ?
+</h3>
+
 <div class="btn-container">
     <div class="btn-container-box">
         <button type="button" class="btn btn-outline-success tablink" onclick="openPage('lastInvoice', this, '')">Last invoices</button>
@@ -20,6 +25,7 @@
                 <th scope="col">Company</th>
                 <th scope="col">Delete</th>
                 <th scope="col">Update</th>
+                <th scope="col">Details</th>          
             </tr>
         </thead>
         <tbody>
@@ -30,8 +36,9 @@
                 <td><?=date('Y-m-d', strtotime($invoice['date']))?></td>
                 <td><?=$invoice['company']?></td>
                 <?php if ($_SESSION['rights'] === 'god') :?>
-                <td><a href="?page=invoices-delete&id=<?=$invoice['ID']?>">icon</a></td>
-                <td><a href="?page=invoices-edit&id=<?=$invoice['ID']?>">icon</a></td>
+                <td><a href="?page=invoices-delete&id=<?=$invoice['ID']?>" class="fa fa-trash" aria-hidden="true"></a></td>
+                <td><a href="?page=invoices-edit&id=<?=$invoice['ID']?>" class="fa fa-pencil" aria-hidden="true"></a></td>
+                <td><a href="?page=invoices-details&id=<?=$invoice['ID']?>" class="fa fa-eye" aria-hidden="true"></a></td>          
                 <?php endif ?>
             </tr>
             <?php endforeach ?>
@@ -52,6 +59,9 @@
                 <th scope="col">Phone</th>
                 <th scope="col">Email</th>
                 <th scope="col">Company</th>
+                <th scope="col">Delete</th>
+                <th scope="col">Update</th>
+                <th scope="col">Details</th>  
             </tr>
         </thead>
         <tbody>
@@ -63,8 +73,9 @@
                 <td><?=$contact['mail']?></td>
                 <td><?=$contact['company']?></td>
                 <?php if ($_SESSION['rights'] === 'god') :?>
-                <td><a href="?page=invoices-delete&id=<?=$invoice['ID']?>">icon</a></td>
-                <td><a href="?page=invoices-edit&id=<?=$invoice['ID']?>">icon</a></td>
+                <td><a href="?page=invoices-delete&id=<?=$invoice['ID']?>" class="fa fa-trash" aria-hidden="true"></a></td>
+                <td><a href="?page=invoices-edit&id=<?=$invoice['ID']?>" class="fa fa-pencil" aria-hidden="true"></a></td>
+                <td><a href="?page=invoices-details&id=<?=$invoice['ID']?>" class="fa fa-eye" aria-hidden="true"></a></td> 
                 <?php endif ?>
             </tr>
             <?php endforeach ?>
@@ -85,6 +96,9 @@
                 <th scope="col">VAT</th>
                 <th scope="col">Country</th>
                 <th scope="col">Type</th>
+                <th scope="col">Delete</th>
+                <th scope="col">Update</th>
+                <th scope="col">Details</th>  
             </tr>
         </thead>
         <tbody>
@@ -96,8 +110,9 @@
                 <td><?=$company['country']?></td>
                 <td><?=$company['type']?></td>
                 <?php if ($_SESSION['rights'] === 'god') :?>
-                <td><a href="?page=invoices-delete&id=<?=$invoice['ID']?>">icon</a></td>
-                <td><a href="?page=invoices-edit&id=<?=$invoice['ID']?>">icon</a></td>
+                <td><a href="?page=invoices-delete&id=<?=$invoice['ID']?>" class="fa fa-trash" aria-hidden="true"></a></td>
+                <td><a href="?page=invoices-edit&id=<?=$invoice['ID']?>" class="fa fa-pencil" aria-hidden="true"></a></td>
+                <td><a href="?page=invoices-details&id=<?=$invoice['ID']?>" class="fa fa-eye" aria-hidden="true"></a></td> 
                 <?php endif ?>
             </tr>
             <?php endforeach ?>
