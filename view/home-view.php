@@ -9,7 +9,7 @@
 <!-- last invoices -->
 <div id="lastInvoice" class="tabcontent">
     <h5 class="row card-header info-color py-3">
-    <strong class="login">Last invoices</strong>
+    <strong class="invoices">Last invoices</strong>
     </h5>
     <table class="table table-striped">
         <thead>
@@ -36,7 +36,7 @@
 <!-- Contacts -->
 <div id="lastContacts" class="tabcontent">
     <h5 class="row card-header info-color py-3">
-    <strong class="login">Last contacts</strong>
+    <strong class="contacts">Last contacts</strong>
     </h5>
     <table class="table table-striped">
         <thead>
@@ -65,7 +65,7 @@
 <!-- Companies -->
 <div id="lastCompanies" class="tabcontent">
     <h5 class="row card-header info-color py-3">
-    <strong class="login">Last companies</strong>
+    <strong class="companies">Last companies</strong>
     </h5>
     <table class="table table-striped">
         <thead>
@@ -89,7 +89,5 @@
             <?php endforeach ?>
         </tbody>
     </table>
-</div>
-
 </div>
 <script src="assets/script/script.js"></script>
