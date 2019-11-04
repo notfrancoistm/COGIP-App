@@ -55,6 +55,7 @@ if (preg_match('/modo|god/', $_SESSION['rights'])) {
         }
     }
     else {
+
         require 'controller/home-ctrl.php';
     }
 
@@ -62,6 +63,7 @@ if (preg_match('/modo|god/', $_SESSION['rights'])) {
 else {
     require 'controller/connexion-ctrl.php';
 }
+
 ?>
 
 <?php 
