@@ -8,20 +8,19 @@ require 'model/dbconnect.php';
 
 // session
 require 'session.php';
+authentification();
 
 // Header
 require 'view/component/header-component.php';
 
-unset($_SESSION);
-session_destroy();
+// unset($_SESSION);
+// session_destroy();
 
 // echo '<pre>';
 //    print_r($_POST);
 // echo '</pre>';
 
 // var_dump($_SESSION['rights']);
-
-// echo $error['session'];
 
 // routing
 if (preg_match('/modo|god/', $_SESSION['rights']) === 1) {
@@ -46,6 +45,7 @@ if (preg_match('/modo|god/', $_SESSION['rights']) === 1) {
 
 }
 else {
+    echo $error['session'];
     require 'controller/connexion-ctrl.php';
 }
  

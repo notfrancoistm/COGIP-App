@@ -75,6 +75,4 @@ function authentification () {
       unset($_POST['password']);
    }
 }
-
-authentification();
 ?>
