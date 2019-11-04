@@ -11,13 +11,15 @@
     <h5 class="row card-header info-color py-3">
     <strong class="invoices">Last invoices</strong>
     </h5>
-    <table class="table table-striped">
+    <table class="table table-striped table-responsive-sm">
         <thead>
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Invoice Number</th>
                 <th scope="col">Date</th>
                 <th scope="col">Company</th>
+                <th scope="col">Delete</th>
+                <th scope="col">Update</th>
             </tr>
         </thead>
         <tbody>
@@ -27,6 +29,10 @@
                 <td><?=$invoice['number']?></td>
                 <td><?=date('Y-m-d', strtotime($invoice['date']))?></td>
                 <td><?=$invoice['company']?></td>
+                <?php if ($_SESSION['rights'] === 'god') :?>
+                <td><a href="?page=invoices-delete&id=<?=$invoice['ID']?>">icon</a></td>
+                <td><a href="?page=invoices-edit&id=<?=$invoice['ID']?>">icon</a></td>
+                <?php endif ?>
             </tr>
             <?php endforeach ?>
         </tbody>
@@ -38,7 +44,7 @@
     <h5 class="row card-header info-color py-3">
     <strong class="contacts">Last contacts</strong>
     </h5>
-    <table class="table table-striped">
+    <table class="table table-striped table-responsive-sm">
         <thead>
             <tr>
                 <th scope="col">ID</th>
@@ -56,6 +62,10 @@
                 <td><?=$contact['phone']?></td>
                 <td><?=$contact['mail']?></td>
                 <td><?=$contact['company']?></td>
+                <?php if ($_SESSION['rights'] === 'god') :?>
+                <td><a href="?page=invoices-delete&id=<?=$invoice['ID']?>">icon</a></td>
+                <td><a href="?page=invoices-edit&id=<?=$invoice['ID']?>">icon</a></td>
+                <?php endif ?>
             </tr>
             <?php endforeach ?>
         </tbody>
@@ -67,7 +77,7 @@
     <h5 class="row card-header info-color py-3">
     <strong class="companies">Last companies</strong>
     </h5>
-    <table class="table table-striped">
+    <table class="table table-striped table-responsive-sm">
         <thead>
             <tr>
                 <th scope="col">ID</th>
@@ -85,6 +95,10 @@
                 <td><?=$company['VAT']?></td>
                 <td><?=$company['country']?></td>
                 <td><?=$company['type']?></td>
+                <?php if ($_SESSION['rights'] === 'god') :?>
+                <td><a href="?page=invoices-delete&id=<?=$invoice['ID']?>">icon</a></td>
+                <td><a href="?page=invoices-edit&id=<?=$invoice['ID']?>">icon</a></td>
+                <?php endif ?>
             </tr>
             <?php endforeach ?>
         </tbody>

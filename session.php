@@ -3,7 +3,7 @@
 //> Validation </////////////////////////////////
 
 function login_validation (string $input = ''): bool {
-   $pattern = '/^[a-zA-Z0-9_]{3,50}$/';
+   $pattern = '/^[a-zA-Z0-9_-]{3,50}$/';
    return preg_match($pattern, trim($input)) ? true : false;
 }
 
