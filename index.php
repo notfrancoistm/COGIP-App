@@ -3,56 +3,30 @@ session_start();
 
 $error = [];
 
-// Database connection
+// database connection
+require 'model/dbconnect.php';
 
-function openConnection() {
-    $dbhost = "database";
-    $dbuser = "root";
-    $dbpass = "root";
-    $db     = "cogip";
-
-    $pdo = new PDO("mysql:host=$dbhost;dbname=$db;charset=utf8mb4",$dbuser,$dbpass);
-
-    return $pdo;
-}
-
-try {
-    $pdo = openConnection();
-    if ($pdo) {
-        // echo "Connected to the <strong>$db</strong> database successfully!";
-        $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    }
-}
-catch (PDOException $ex){
-    die($ex->getMessage());
-}
-?>
-
-<!-- temporaire -->
-<?php
-// Session
+// session
 require 'session.php';
 
 // Header
 require 'view/component/header-component.php';
-?>
 
-<?php
-//unset($_SESSION);
-//session_destroy();
+unset($_SESSION);
+session_destroy();
 
-echo '<pre>';
-   print_r($_POST);
-echo '</pre>';
+// echo '<pre>';
+//    print_r($_POST);
+// echo '</pre>';
 
-var_dump($_SESSION['rights']);
+// var_dump($_SESSION['rights']);
 
-echo $error['session'];
+// echo $error['session'];
 
 // routing
 if (preg_match('/modo|god/', $_SESSION['rights']) === 1) {
 
-    // Menu
+// Menu
     require 'view/component/menu-component.php';
 
     if (!empty($_GET['page'])) {
@@ -74,10 +48,7 @@ if (preg_match('/modo|god/', $_SESSION['rights']) === 1) {
 else {
     require 'controller/connexion-ctrl.php';
 }
-
-?>
-
-<?php 
-// Footer
+ 
+// footer
 require 'view/component/footer-component.php';
 ?>
