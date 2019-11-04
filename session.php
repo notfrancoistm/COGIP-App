@@ -30,23 +30,26 @@ function get_user (string $login): array {
 }
 
 // validation
-$login = $_POST['username'] ?? '';
-$password = $_POST['password'] ?? '';
+if (!preg_match('/modo|god/', $_SESSION['rights'])) {
 
-$username_val = login_validation($login);
-$password_val = password_validation($password);
+   $login = $_POST['username'] ?? '';
+   $password = $_POST['password'] ?? '';
+
+   $username_val = login_validation($login);
+   $password_val = password_validation($password);
 
 
-if ($username_val AND $password_val) {
+   if ($username_val AND $password_val) {
 
-   $user_data = get_user($login);
+      $user_data = get_user($login);
 
-   $hash = $user_data['password'];
+      $hash = $user_data['password'];
 
-   $_SESSION['rights'] = $user_data['rights'];
+      $_SESSION['rights'] = $user_data['rights'];
 
-}
-else if (empty($_SESSION['rights'])) {
-   echo "Error 403 - forbidden l'accès au fichier requiert une autorisation";
+   }
+   else {
+      echo "Error 403 - forbidden l'accès au fichier requiert une autorisation";
+   }
 }
 ?>

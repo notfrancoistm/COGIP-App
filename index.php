@@ -3,10 +3,6 @@ session_start();
 
 //unset($_SESSION);
 
-echo '<pre>';
-    var_dump($_SESSION['rights']);
-echo '</pre>';
-
 // Database connection
 
 function openConnection() {
@@ -23,7 +19,7 @@ function openConnection() {
 try {
     $pdo = openConnection();
     if ($pdo) {
-        echo "Connected to the <strong>$db</strong> database successfully!";
+        // echo "Connected to the <strong>$db</strong> database successfully!";
         $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     }
 }
@@ -34,6 +30,7 @@ catch (PDOException $ex){
 
 <!-- temporaire -->
 <?php
+// Session
 require 'session.php';
 
 // Header

@@ -2,20 +2,14 @@
 require 'model/home-mdl.php';
 
 $string_input = 'wail madrane';
-var_dump(string_validation($string_input));
+//var_dump(string_validation($string_input));
 
-$company = get_by_id('company', 1);
-
-$table = table_validation('company');
-
-echo '<pre>';
-   print_r($company);
-echo '</pre>';
+$invoices_data = get_many('invoices', 5);
+$contacts_data = get_many('contacts', 5);
 
 echo '<pre>';
-   var_dump($table);
+   print_r($contacts_data);
 echo '</pre>';
-
 
 
 require 'view/home-view.php';

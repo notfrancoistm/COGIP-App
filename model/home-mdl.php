@@ -74,21 +74,17 @@
       global $pdo;
 
       if ($limit) {
-         $param = [
-            'limit' => is_int($limit) ? (string)$limit : $limit
-         ];
-         
-         $stmt = $pdo->prepare("SELECT * FROM $table LIMIT :limit");
-         $stmt->execute($param);
+         $limit = is_int($limit) ? (string)$limit : $limit;     
+         $stmt = $pdo->prepare("SELECT * FROM $table ORDER BY id DESC LIMIT $limit");
       }
       else {
-         $stmt = $pdo->prepare("SELECT * FROM $table");
-         $stmt->execute();
+         $stmt = $pdo->prepare("SELECT * FROM $table ORDER BY id DESC");      
       }
 
+      $stmt->execute();
       $data = $stmt->fetchAll();
 
-      return $data;
+      return array_reverse($data);
    }
 
    /* POST */
