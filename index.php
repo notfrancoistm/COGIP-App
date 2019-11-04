@@ -1,21 +1,29 @@
 <?php
 session_start();
 
-//unset($_SESSION);
+$error = [];
 
 // database connection
 require 'model/dbconnect.php';
 
-// temporaire
-
 // session
 require 'session.php';
+authentification();
 
 // Header
 require 'view/component/header-component.php';
 
+// unset($_SESSION);
+// session_destroy();
+
+// echo '<pre>';
+//    print_r($_POST);
+// echo '</pre>';
+
+// var_dump($_SESSION['rights']);
+
 // routing
-if (preg_match('/modo|god/', $_SESSION['rights'])) {
+if (preg_match('/modo|god/', $_SESSION['rights']) === 1) {
 
 // Menu
     require 'view/component/menu-component.php';
@@ -37,6 +45,7 @@ if (preg_match('/modo|god/', $_SESSION['rights'])) {
 
 }
 else {
+    echo $error['session'];
     require 'controller/connexion-ctrl.php';
 }
  

@@ -14,7 +14,7 @@ function password_validation (string $input = ''): bool {
 
 //> SQL Queries </////////////////////////////////
 
-function get_user (string $login): array {
+function get_user (string $login) {
    global $pdo;
 
    $param = [
@@ -30,26 +30,49 @@ function get_user (string $login): array {
 }
 
 // validation
-if (!preg_match('/modo|god/', $_SESSION['rights'])) {
 
-   $login = $_POST['username'] ?? '';
-   $password = $_POST['password'] ?? '';
+function authentification () {
+   global $error;
 
-   $username_val = login_validation($login);
-   $password_val = password_validation($password);
+   if (!preg_match('/modo|god/', $_SESSION['rights']) && $_POST['submit'] === 'Login') {
 
+      $login = $_POST['username'] ?? '';
+      $password = $_POST['password'] ?? '';
 
-   if ($username_val AND $password_val) {
+      $username_val = login_validation($login);
+      $password_val = password_validation($password);
 
-      $user_data = get_user($login);
+      // validation input
+      if ($username_val AND $password_val) {
+         $user_data = get_user($login);
+      }
+      else {
+         $error['session'] = "Error - Invalid password or username";
+         return;
+      }
 
-      $hash = $user_data['password'];
+      // if user exist verify password
+      if ($user_data) {
+         $hash = $user_data['password'];
+         $pass_is_correct = password_verify($password, $hash);
+      }
+      else{
+         $error['session'] = "Error 403 - Forbidden access, requires authorization";
+         return;
+      } 
 
-      $_SESSION['rights'] = $user_data['rights'];
+      // if password is correct set $_SESSION['rights'] to user rights
+      if ($pass_is_correct) {
+         $_SESSION['rights'] = $user_data['rights'];
+      }
+      else {
+         $error['session'] = "Error 403 - Forbidden access, requires authorization";
+         return;
+      }
 
-   }
-   else {
-      echo "Error 403 - forbidden l'accès au fichier requiert une autorisation";
+      // unset form data
+      unset($_POST['username']);
+      unset($_POST['password']);
    }
 }
 ?>
