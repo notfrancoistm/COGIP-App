@@ -89,7 +89,49 @@
       return array_reverse($data);
    }
 
+
+
+   function get_by_foreign_key (string $table, string $foreign_key, $id): array {
+      global $pdo;
+   
+      $stmt = $pdo->prepare("SELECT * FROM $table WHERE $foreign_key = $id");      
+   
+      $stmt->execute();
+      $data = $stmt->fetchAll();
+   
+      return $data;
+   }
+
    /* POST */
+
+   function create_company(string $name, string $vat, string $country, $type): void {
+      global $pdo;
+
+      $param = [
+         'name' => $name,
+         'vat' => $vat,
+         'country' => $country,
+         'type' => $type
+      ];
+
+      $stmt = $pdo->prepare('INSERT INTO company(company_name, VAT, country, type) VALUE (:name, :vat, :country, :type)');
+      $stmt->execute($param);
+   }
+
+
+   function create_contact(string $name, string $vat, string $country, $type): void {
+      global $pdo;
+
+      $param = [
+         'name' => $name,
+         'vat' => $vat,
+         'country' => $country,
+         'type' => $type
+      ];
+
+      $stmt = $pdo->prepare('INSERT INTO company(company_name, VAT, country, type) VALUE (:name, :vat, :country, :type)');
+      $stmt->execute($param);
+   }
 
    /* PUT */
 
