@@ -69,8 +69,7 @@
 
       return $data;
    }
-
-
+   
    
    function get_many (string $table, $limit = null): array {
       global $pdo;
