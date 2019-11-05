@@ -1,26 +1,30 @@
-<div class="row justify-content-center">
-    <div class="card text-center  col-md-8">
-        <h5 class="row card-header info-color py-3">
+<!-- unique navbar -->
+    <nav class="navbar navbar-expand-lg band">
+        <img class="logo" src="assets/img/logo-black.png">
+        <span class="text-lg-right">accounting assistant</span> 
+    </nav>
+</div>
+<!-- -->
+
+<div class="globalelement row justify-content-center">
+    <div class="card text-center col-md-4">
+        <h5 class="row card-header">
         <strong class="login">Login</strong>
         </h5>
-        <form class="login text-center" style="color: #757575;" action="" method="post" name="login">
-            <div class="row justify-content-center">
-                <div class="col-md-5">
-                    <label for="username">Username</label>
-                    <input type="text" id="login" class="login-input" name="username" placeholder="login" autofocus>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-5">
-                    <label for="password">Password</label>
-                    <input type="text" id="password" class="login-input" name="password" placeholder="password">
-                </div>
-            </div>
-            <button type="submit" name="submit" class="btn btn-primary btn-rounded waves-effect" value="Login">Log in</button>
-        </form>
 
-        <div id="formFooter">
-            <a class="underlineHover" href="#">Forgot Password?</a>
-        </div>
+        <form class="login" style="color: #757575;" action="" method="post" name="login">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <input type="text" id="login" class="login-input rounded" name="username" placeholder="username" autofocus>
+                </div>
+                <div class="col-md-8">
+                    <input type="text" id="password" class="login-input rounded" name="password" placeholder="password">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <button type="submit" name="submit" class="btn btn-rounded" style="background-color: #5E98C0;" value="Login">Log in</button>
+            </div>
+        </form>
+</div>
     </div>
 </div>

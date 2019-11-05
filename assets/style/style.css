@@ -1,11 +1,29 @@
 body{
     height: 100%;
+    background-color: white;
+}
+nav {
+  margin-bottom: 5vh;
 }
 
-img.logo {
-    width: 120px;
+.band{
+  height: 10vh;
+  background-color: #5E98C0;
+}
+
+.logo {
+    width: 20vh;
     height: auto;
 }
+
+input, button{
+  margin: 1vh;
+}
+
+.globalelement{
+  margin: 20px;
+}
+
 .btn-container {
     width: 0 auto;
     padding: 30px;
@@ -38,8 +56,3 @@ img.logo {
     padding: 100px 20px;
     height: 100%;
   }
-  
-  #Home {background-color: red;}
-  #News {background-color: green;}
-  #Contact {background-color: blue;}
-  #About {background-color: orange;}
