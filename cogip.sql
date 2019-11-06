@@ -148,8 +148,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`ID`, `login`, `password`, `rights`) VALUES
-(1, 'jean-christian', '', 'god'),
-(2, 'muriel', '', 'modo');
+(1, 'jean-christian', '$2y$10$Qa56z0CRlwlYYYTAOlqpW.5Hs5tcD5wb43TsXBEOcReg3hca1FzrC', 'god'),
+(2, 'muriel', '$2y$10$smeNe4R9xHB6PyKpQqMINuds3bece1.JXneKoauA/aFcAa1Nf7c76', 'modo');
 
 --
 -- Indexes for dumped tables
