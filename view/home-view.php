@@ -1,15 +1,19 @@
-<h3>
-    Bonjour <?=$_SESSION['username']?> !<br>
-    Que souhaitez-vous faire aujourd'hui ?
-</h3>
-
-<div class="btn-container">
-    <div class="btn-container-box">
-        <button type="button" class="btn btn-outline-success tablink" onclick="openPage('lastInvoice', this, '')">Last invoices</button>
-        <button type="button" class="btn btn-outline-success tablink" onclick="openPage('lastContacts', this, '')">Last contacts</button>
-        <button type="button" class="btn btn-outline-success tablink" onclick="openPage('lastCompanies', this, '')">Last companies</button>
+<div class="row">
+    <div class="col-md-4">
+        <h3>Bonjour <?=$_SESSION['username']?> !</h3>
     </div>
 </div>
+
+<div class="row">
+    <div class="btn-container col-md-8">
+        <div class="btn-container-box">
+            <button type="button" class="btn btn-outline-success tablink" onclick="openPage('lastInvoice', this, '')">Last invoices</button>
+            <button type="button" class="btn btn-outline-success tablink" onclick="openPage('lastContacts', this, '')">Last contacts</button>
+            <button type="button" class="btn btn-outline-success tablink" onclick="openPage('lastCompanies', this, '')">Last companies</button>
+        </div>
+    </div>
+</div>
+
 
 <!-- last invoices -->
 <div id="lastInvoice" class="tabcontent">
@@ -46,7 +50,7 @@
     </table>
 </div>
 
-<!-- Contacts -->
+<!-- last Contacts -->
 <div id="lastContacts" class="tabcontent">
     <h5 class="row card-header info-color py-3">
     <strong class="contacts">Last contacts</strong>
@@ -83,7 +87,7 @@
     </table>
 </div>
 
-<!-- Companies -->
+<!-- last Companies -->
 <div id="lastCompanies" class="tabcontent">
     <h5 class="row card-header info-color py-3">
     <strong class="companies">Last companies</strong>

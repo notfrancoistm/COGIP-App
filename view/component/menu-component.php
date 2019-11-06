@@ -1,4 +1,4 @@
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg band">
     <img class="logo" src="assets/img/logo-black.png">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -24,9 +24,15 @@
         </div>
         <?php endif ?>
         <!---->
-
-        <a class="nav-item nav-link" href="?page=dashboard"><?=$_SESSION['username']?></a>
       </div>
+
+      
     </div>
   </nav>
   
+  <div class="btn-group dropright">
+          <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><a class="nav-item nav-link" href="?page=dashboard"><?=$_SESSION['username']?></a></button>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a href="#" data-toggle="modal" data-target="#logoutModal">logout</a>
+            </div>
+        </div>

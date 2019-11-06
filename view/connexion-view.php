@@ -12,17 +12,17 @@
         <strong class="login">Login</strong>
         </h5>
 
-        <form class="login" style="color: #757575;" action="" method="post" name="login">
+        <form class="login" style="color: rgb(112, 193, 247) ;" action="" method="post" name="login">
             <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <input type="text" id="login" class="login-input rounded" name="username" placeholder="username" autofocus>
+                <div class="form-group col-md-8">
+                    <input type="text" id="login" class="form-control login-input rounded" name="username" placeholder="username" autofocus>
                 </div>
-                <div class="col-md-8">
-                    <input type="text" id="password" class="login-input rounded" name="password" placeholder="password">
+                <div class=" form-group col-md-8">
+                    <input type="text" id="password" class="form-control login-input rounded" name="password" placeholder="password">
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <button type="submit" name="submit" class="btn btn-rounded" style="background-color: #5E98C0;" value="Login">Log in</button>
+            <div class="form-group row justify-content-center">
+                <button type="submit" name="submit" class="col-md-8 form-control btn btn-rounded" style="background-color: rgb(112, 193, 247);" value="Login">Log in</button>
             </div>
         </form>
     </div>

@@ -1,38 +1,35 @@
-<form>
-    <h3>New invoice</h3>
+<div class="globalelement row justify-content-center">
+    <div class="card text-center col-md-4">
+        <h5 class="row card-header">
+        <strong class="invoices">New invoice</strong>
+        </h5>
 
-    <div class="row">
-        <div class="col">
-            <label for="">Invoice number</label><br/>
-            <input type="number" class="form-control" placeholder="Invoice number">
-        </div>
+        <form class="invoices" style="color: rgb(112, 193, 247) ;" action="" method="post" name="invoices">
+            <div class="row justify-content-center">
+
+                <div class="form-group col-md-8">
+                    <input class="form-control" name="invoices_number" id="invoices_number" type="text" placeholder="Invoices number" required autofocus>
+                </div>
+                <div class="form-group col-md-8">
+                    <select class="form-control" name="company">
+                        <option value="none" selected disabled>Company</option> 
+                        <?php ?>
+                    </select>    
+                </div>
+                <div class="form-group col-md-8">
+                    <select class="form-control" name="contact">
+                        <option value="none" selected disabled>Contact regarding</option> 
+                        <?php  ?>
+                    </select> 
+                </div>
+
+            </div>
+
+            <div class="row justify-content-center">
+                <button type="submit" name="submit" class="btn btn-rounded" style="background-color: rgb(112, 193, 247);" value="Login">Create invoice</button>
+            </div>
+
+        </form>
     </div>
-
-    <div class="row">
-        <div class="col">
-            <label for="">Invoice date</label><br/>
-            <input type="date" class="form-control">
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col">
-            <label for="company">Company</label><br/>
-            <select class="form-control" name="company" alt="" value="k">
-                <?php require '' ?>
-            </select>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col">
-            <label for="contact">Contact person regarding the invoice</label><br/>
-            <select class="form-control" name="contact" alt="" value="l">
-            <?php require '' ?>
-            </select>
-        </div>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Create invoice</button>
-</form>
+</div>
 
