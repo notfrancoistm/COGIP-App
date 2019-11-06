@@ -25,6 +25,5 @@
                 <button type="submit" name="submit" class="btn btn-rounded" style="background-color: #5E98C0;" value="Login">Log in</button>
             </div>
         </form>
-</div>
     </div>
 </div>
