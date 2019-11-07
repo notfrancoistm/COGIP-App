@@ -114,26 +114,50 @@
          'type' => $type
       ];
 
-      $stmt = $pdo->prepare('INSERT INTO company(company_name, VAT, country, type) VALUE (:name, :vat, :country, :type)');
+      $stmt = $pdo->prepare('INSERT INTO company (company_name, VAT, country, type) VALUE (:name, :vat, :country, :type)');
       $stmt->execute($param);
    }
 
 
-   function create_contact(string $name, string $vat, string $country, $type): void {
+   function create_invoices (string $number, $company, $company_type, $contact): void {
       global $pdo;
 
       $param = [
-         'name' => $name,
-         'vat' => $vat,
-         'country' => $country,
-         'type' => $type
+         'number' => $number,
+         'company' => $company,
+         'company_type' => $company_type,
+         'contact' => $contact
       ];
 
-      $stmt = $pdo->prepare('INSERT INTO company(company_name, VAT, country, type) VALUE (:name, :vat, :country, :type)');
+      $stmt = $pdo->prepare('INSERT INTO company (number, company, company_type, contact) VALUE (:number, :company, :company_type, :contact)');
+      $stmt->execute($param);
+   }
+
+
+   function create_contact (string $first_name, string $last_name, string $email, $company, $phone): void {
+      global $pdo;
+
+      $param = [
+         'first_name' => $first_name,
+         'last_name' => $last_name,
+         'mail' => $email,
+         'company' => $company,
+         'phone' => $phone
+      ];
+
+      $stmt = $pdo->prepare('INSERT INTO contacts (first_name, last_name, mail, company, phone) VALUE (:first_name, :last_name, :mail, :company, :phone)');
       $stmt->execute($param);
    }
 
    /* PUT */
 
    /* DELETE */
+
+   //> Utility </////////////////////////////////
+
+   function dump($var) {
+      echo '<pre>';
+      var_dump($var);
+      echo '</pre>';
+   }
 ?>

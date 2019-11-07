@@ -22,7 +22,7 @@
     </thead>
     <tbody>
         <tr>          
-            <th scope="row"><?=$company['ID']?></th>
+            <th scope="row"><?=$company['company_id']?></th>
             <td><?=$company['company_name']?></td>
             <td><?=$company['VAT']?></td>
             <td><?=$company['country']?></td>

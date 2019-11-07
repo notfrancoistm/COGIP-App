@@ -20,11 +20,11 @@
     </thead>
     <tbody>
         <tr>          
-            <th scope="row"><?=$contact['ID']?></th>
-            <td><?=$contact['first_name'] . ' ' . $contact['last_name']?></td>
+            <th scope="row"><?=$contact['contact_id']?></th>
+            <td><?=$contact['full_name']?></td>
             <td><?=$contact['phone']?></td>
             <td><?=$contact['mail']?></td>
-            <td><?=$contact['company']?></td>
+            <td><?=$contact['company_name']?></td>
         </tr>
     </tbody>
 </table>
