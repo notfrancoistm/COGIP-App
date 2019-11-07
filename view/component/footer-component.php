@@ -1,7 +1,7 @@
 
   <footer class="page-footer font-small blue">
     <div class="footer-copyright text-center py-3">
-    Vive la COGIP! © <?php print date('Y');?>
+    Vive la COGIP! 💖 <?php print date('Y');?>
     </div>
   </footer>
 

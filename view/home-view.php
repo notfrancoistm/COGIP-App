@@ -1,20 +1,10 @@
 <div class="globalelement row justify-content-center">
-    <h5>Bonjour, <?=$_SESSION['username']?> !</h5>
-</div>
-
-<div class="row globalelement">
-   <div class="col-md-2"></div>
-        <div class="btn-group btn-group-lg col-md-8" >
-            <button type="button" class="btn btn-outline tablink" onclick="openPage('lastInvoice', this, '')">Last invoices</button>
-            <button type="button" class="btn btn-outline tablink" onclick="openPage('lastContacts', this, '')">Last contacts</button>
-            <button type="button" class="btn btn-outline tablink" onclick="openPage('lastCompanies', this, '')">Last companies</button>
-        </div>
-   <div class="col-md-2"></div>
+    <h5>Joyeuse comptabilité <?=$_SESSION['username']?> ! Puisse le sort vous etre favorable</h5>
 </div>
 
 <!-- last invoices -->
-<div id="lastInvoice" class="globalelement row justify-content-center tabcontent">
-    <div class="card text-center col-md-12">
+<div id="lastInvoice" class="globalelement row justify-content-center">
+    <div class="card text-center col-md-10">
         <h5 class="row card-header">
         <strong class="invoices">Last invoices</strong>
         </h5>
@@ -50,10 +40,10 @@
         </div>
     </div>  
 </div>
-
+<hr>
 <!-- last Contacts -->
-<div id="lastContacts" class="globalelement row justify-content-center tabcontent">
-    <div class="card text-center col-md-12">
+<div id="lastContacts" class="globalelement row justify-content-center">
+    <div class="card text-center col-md-10">
         <h5 class="row card-header">
         <strong class="contacts">Last contacts</strong>
         </h5>
@@ -93,10 +83,10 @@
         </div>
     </div>
 </div>
-
+<hr>
 <!-- last Companies -->
-<div id="lastCompanies" class="globalelement row justify-content-center tabcontent">
-    <div class="card text-center col-md-12">
+<div id="lastCompanies" class="globalelement row justify-content-center">
+    <div class="card text-center col-md-10">
         <h5 class="row card-header">
         <strong class="companies">Last companies</strong>
         </h5>
@@ -134,6 +124,3 @@
         </div>
     </div>
 </div>
-
-<!-- script call --> 
-<script src="assets/script/script.js"></script>
