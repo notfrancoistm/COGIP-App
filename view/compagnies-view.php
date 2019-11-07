@@ -1,5 +1,5 @@
 <div class="globalelement row justify-content-center">
-    <div class="card text-center col-md-12">
+    <div class="card text-center col-md-10">
         <h5 class="row card-header">
         <strong class="companies">Last companies</strong>
         </h5>
