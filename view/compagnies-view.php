@@ -4,7 +4,7 @@
         <strong class="companies">Last companies</strong>
         </h5>
         <div class="row justify-content-center">
-            <table class="table table-striped table-responsive-sm">
+        <table class="table table-striped table-responsive-sm">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
@@ -18,17 +18,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($compagnies_data as $company) :?>
+                    <?php foreach($companies_data as $company) :?>
                     <tr>          
-                        <th scope="row"><?=$company['ID']?></th>
+                        <th scope="row"><?=$company['company_id']?></th>
                         <td><?=$company['company_name']?></td>
                         <td><?=$company['VAT']?></td>
                         <td><?=$company['country']?></td>
                         <td><?=$company['type']?></td>
                         <?php if ($_SESSION['rights'] === 'god') :?>
-                        <td><a href="?page=compagnies-delete&id=<?=$company['ID']?>" class="fa fa-trash" aria-hidden="true"></a></td>
-                        <td><a href="?page=compagnies-edit&id=<?=$company['ID']?>" class="fa fa-pencil" aria-hidden="true"></a></td>
-                        <td><a href="?page=compagnies-details&id=<?=$company['ID']?>" class="fa fa-eye" aria-hidden="true"></a></td> 
+                        <td><a href="?page=compagnies-delete&id=<?=$company['company_id']?>" class="fa fa-trash" aria-hidden="true"></a></td>
+                        <td><a href="?page=compagnies-edit&id=<?=$company['company_id']?>" class="fa fa-pencil" aria-hidden="true"></a></td>
+                        <td><a href="?page=compagnies-details&id=<?=$company['company_id']?>" class="fa fa-eye" aria-hidden="true"></a></td> 
                         <?php endif ?>
                     </tr>
                     <?php endforeach ?>

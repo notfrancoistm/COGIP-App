@@ -5,7 +5,7 @@
         </h5>
 
         <div class="row justify-content-center">
-            <table class="table table-striped table-responsive-sm">
+                <table class="table table-striped table-responsive-sm">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
@@ -21,15 +21,15 @@
                     <tbody>
                         <?php foreach($contacts_data as $contact) :?>
                         <tr>          
-                            <th scope="row"><?=$contact['ID']?></th>
-                            <td><?=$contact['first_name'] . ' ' . $contact['last_name']?></td>
+                            <th scope="row"><?=$contact['contact_id']?></th>
+                            <td><?=$contact['full_name']?></td>
                             <td><?=$contact['phone']?></td>
                             <td><?=$contact['mail']?></td>
-                            <td><?=$contact['company']?></td>
+                            <td><?=$contact['company_name']?></td>
                             <?php if ($_SESSION['rights'] === 'god') :?>
-                            <td><a href="?page=contacts-delete&id=<?=$contact['ID']?>" class="fa fa-trash" aria-hidden="true"></a></td>
-                            <td><a href="?page=contacts-edit&id=<?=$contact['ID']?>" class="fa fa-pencil" aria-hidden="true"></a></td>
-                            <td><a href="?page=contacts-details&id=<?=$contact['ID']?>" class="fa fa-eye" aria-hidden="true"></a></td> 
+                            <td><a href="?page=contacts-delete&id=<?=$contact['contact_id']?>" class="fa fa-trash" aria-hidden="true"></a></td>
+                            <td><a href="?page=contacts-edit&id=<?=$contact['contact_id']?>" class="fa fa-pencil" aria-hidden="true"></a></td>
+                            <td><a href="?page=contacts-details&id=<?=$contact['contact_id']?>" class="fa fa-eye" aria-hidden="true"></a></td> 
                             <?php endif ?>
                         </tr>
                         <?php endforeach ?>

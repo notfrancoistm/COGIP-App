@@ -33,9 +33,9 @@
                         <td><?=$invoice['company_type']?></td>
                         <td><?=$invoice['contacts_full_name']?></td>
                         <?php if ($_SESSION['rights'] === 'god') :?>
-                        <td><a href="?page=invoices-delete&id=<?=$invoice['ID']?>" class="fa fa-trash" aria-hidden="true"></a></td>
-                        <td><a href="?page=invoices-edit&id=<?=$invoice['ID']?>" class="fa fa-pencil" aria-hidden="true"></a></td>
-                        <td><a href="?page=invoices-details&id=<?=$invoice['ID']?>" class="fa fa-eye" aria-hidden="true"></a></td>          
+                        <td><a href="?page=invoices-delete&id=<?=$invoice['invoice_id']?>" class="fa fa-trash" aria-hidden="true"></a></td>
+                        <td><a href="?page=invoices-edit&id=<?=$invoice['invoice_id']?>" class="fa fa-pencil" aria-hidden="true"></a></td>
+                        <td><a href="?page=invoices-details&id=<?=$invoice['invoice_id']?>" class="fa fa-eye" aria-hidden="true"></a></td>          
                         <?php endif ?>
                     </tr>
                     <?php endforeach ?>
@@ -75,9 +75,9 @@
                             <td><?=$contact['mail']?></td>
                             <td><?=$contact['company_name']?></td>
                             <?php if ($_SESSION['rights'] === 'god') :?>
-                            <td><a href="?page=contacts-delete&id=<?=$contact['ID']?>" class="fa fa-trash" aria-hidden="true"></a></td>
-                            <td><a href="?page=contacts-edit&id=<?=$contact['ID']?>" class="fa fa-pencil" aria-hidden="true"></a></td>
-                            <td><a href="?page=contacts-details&id=<?=$contact['ID']?>" class="fa fa-eye" aria-hidden="true"></a></td> 
+                            <td><a href="?page=contacts-delete&id=<?=$contact['contact_id']?>" class="fa fa-trash" aria-hidden="true"></a></td>
+                            <td><a href="?page=contacts-edit&id=<?=$contact['contact_id']?>" class="fa fa-pencil" aria-hidden="true"></a></td>
+                            <td><a href="?page=contacts-details&id=<?=$contact['contact_id']?>" class="fa fa-eye" aria-hidden="true"></a></td> 
                             <?php endif ?>
                         </tr>
                         <?php endforeach ?>
@@ -117,9 +117,9 @@
                         <td><?=$company['country']?></td>
                         <td><?=$company['type']?></td>
                         <?php if ($_SESSION['rights'] === 'god') :?>
-                        <td><a href="?page=compagnies-delete&id=<?=$company['ID']?>" class="fa fa-trash" aria-hidden="true"></a></td>
-                        <td><a href="?page=compagnies-edit&id=<?=$company['ID']?>" class="fa fa-pencil" aria-hidden="true"></a></td>
-                        <td><a href="?page=compagnies-details&id=<?=$company['ID']?>" class="fa fa-eye" aria-hidden="true"></a></td> 
+                        <td><a href="?page=compagnies-delete&id=<?=$company['company_id']?>" class="fa fa-trash" aria-hidden="true"></a></td>
+                        <td><a href="?page=compagnies-edit&id=<?=$company['company_id']?>" class="fa fa-pencil" aria-hidden="true"></a></td>
+                        <td><a href="?page=compagnies-details&id=<?=$company['company_id']?>" class="fa fa-eye" aria-hidden="true"></a></td> 
                         <?php endif ?>
                     </tr>
                     <?php endforeach ?>

@@ -8,9 +8,9 @@ $string_input = 'wail madrane';
 //$contacts_data = get_many('contacts', 5);
 //$compagnies_data = get_many('company', 5);
 
-$invoices_data = get_many_invoices();
-$contacts_data = get_many_contacts();
-$companies_data = get_many_companies();
+$invoices_data = get_many_invoices(5);
+$contacts_data = get_many_contacts(5);
+$companies_data = get_many_companies(5);
 
 // dump($contacts_data);
 

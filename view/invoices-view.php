@@ -11,6 +11,8 @@
                         <th scope="col">Invoice Number</th>
                         <th scope="col">Date</th>
                         <th scope="col">Company</th>
+                        <th scope="col">Type</th> 
+                        <th scope="col">Contact</th> 
                         <th scope="col">Delete</th>
                         <th scope="col">Update</th>
                         <th scope="col">Details</th>          
@@ -19,14 +21,16 @@
                 <tbody>
                     <?php foreach($invoices_data as $invoice) :?>
                     <tr>          
-                        <th scope="row"><?=$invoice['ID']?></th>
+                        <th scope="row"><?=$invoice['invoice_id']?></th>
                         <td><?=$invoice['number']?></td>
                         <td><?=date('Y-m-d', strtotime($invoice['date']))?></td>
-                        <td><?=$invoice['company']?></td>
+                        <td><?=$invoice['company_name']?></td>
+                        <td><?=$invoice['company_type']?></td>
+                        <td><?=$invoice['contacts_full_name']?></td>
                         <?php if ($_SESSION['rights'] === 'god') :?>
-                        <td><a href="?page=invoices-delete&id=<?=$invoice['ID']?>" class="fa fa-trash" aria-hidden="true"></a></td>
-                        <td><a href="?page=invoices-edit&id=<?=$invoice['ID']?>" class="fa fa-pencil" aria-hidden="true"></a></td>
-                        <td><a href="?page=invoices-details&id=<?=$invoice['ID']?>" class="fa fa-eye" aria-hidden="true"></a></td>          
+                        <td><a href="?page=invoices-delete&id=<?=$invoice['invoice_id']?>" class="fa fa-trash" aria-hidden="true"></a></td>
+                        <td><a href="?page=invoices-edit&id=<?=$invoice['invoice_id']?>" class="fa fa-pencil" aria-hidden="true"></a></td>
+                        <td><a href="?page=invoices-details&id=<?=$invoice['invoice_id']?>" class="fa fa-eye" aria-hidden="true"></a></td>          
                         <?php endif ?>
                     </tr>
                     <?php endforeach ?>

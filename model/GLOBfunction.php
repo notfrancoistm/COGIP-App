@@ -1,163 +1,206 @@
 <?php
-   //> Validation </////////////////////////////////
+//> Validation </////////////////////////////////
 
-   /* User input */
+/* User input */
 
-   function string_validation (string $input = ''): bool {
-      $pattern = '/^[a-zA-Z ]{3,50}$/';
-      return preg_match($pattern, trim($input)) ? true : false;
+function string_validation (string $input = ''): bool {
+   $pattern = '/^[a-zA-Z ]{3,50}$/';
+   return preg_match($pattern, trim($input)) ? true : false;
+}
+
+function country_validation (string $input = ''): bool {
+   $pattern = '/^[A-Z]{2} ?0[0-9]{3} ?[0-9]{3} ?[0-9]{3}$/';
+   return preg_match($pattern, trim($input)) ? true : false;
+}
+
+function email_validation (string $input = ''): bool {
+   return filter_var(trim($input), FILTER_VALIDATE_EMAIL) ? true : false;
+}
+
+function phone_validation (string $input = ''): bool {
+   $pattern = '/^(\+?)([0-9] ?){9,20}$/';
+   return preg_match($pattern, trim($input)) ? true : false;
+}
+
+function invoice_number_validation (string $input = ''): bool {
+   $pattern = '/^[A-Z]{1}[0-9]{8}-[0-9]{3}$/';
+   return preg_match($pattern, ucfirst(trim($input))) ? true : false;
+}
+
+function id_validation (string $input = ''): bool {
+   $pattern = '/^[1-9][0-9]{0,50}$/';
+   return preg_match($pattern, trim($input)) ? true : false;
+}
+
+function table_validation (string $table_to_validat): bool {
+   global $pdo;
+   $table_to_validat = trim(strtolower($table_to_validat));
+
+   $stmt = $pdo->query("SHOW TABLES");
+
+   $all_tables = [];
+   while ($row = $stmt->fetch()) {
+      $all_tables[] = $row['Tables_in_cogip'];
    }
 
-   function country_validation (string $input = ''): bool {
-      $pattern = '/^[A-Z]{2} ?0[0-9]{3} ?[0-9]{3} ?[0-9]{3}$/';
-      return preg_match($pattern, trim($input)) ? true : false;
+   $result = false;
+
+   foreach($all_tables as $table_name) {
+      if ($table_to_validat === $table_name) $result = true;
    }
 
-   function email_validation (string $input = ''): bool {
-      return filter_var(trim($input), FILTER_VALIDATE_EMAIL) ? true : false;
-   }
+   return $result;
+}
 
-   function phone_validation (string $input = ''): bool {
-      $pattern = '/^(\+?)([0-9] ?){9,20}$/';
-      return preg_match($pattern, trim($input)) ? true : false;
-   }
+//> SQL Queries </////////////////////////////////
 
-   function invoice_number_validation (string $input = ''): bool {
-      $pattern = '/^[A-Z]{1}[0-9]{8}-[0-9]{3}$/';
-      return preg_match($pattern, ucfirst(trim($input))) ? true : false;
-   }
+/* GET */
 
-   function id_validation (string $input = ''): bool {
-      $pattern = '/^[1-9][0-9]{0,50}$/';
-      return preg_match($pattern, trim($input)) ? true : false;
-   }
+function get_many_invoices($limit = 20) {
+   global $pdo;
 
-   function table_validation (string $table_to_validat): bool {
-      global $pdo;
-      $table_to_validat = trim(strtolower($table_to_validat));
+   $sql = <<<SQL
+   SELECT
+      invoices.id AS invoice_id,
+      invoices.number,
+      invoices.date,  
+      invoices.company,    
+      company.company_name, 
+      invoices.company_type,
+      type.company_type,    
+      invoices.contact,
+      concat(contacts.first_name, ' ', contacts.last_name) AS contacts_full_name     
+   FROM invoices
+   JOIN company
+      ON invoices.company = company.id      
+   JOIN type
+      ON invoices.company_type = type.id     
+   JOIN contacts
+      ON invoices.contact = contacts.id
+   ORDER BY invoices.id DESC
+   LIMIT $limit
+SQL;
 
-      $stmt = $pdo->query("SHOW TABLES");
+   $stmt = $pdo->prepare($sql);      
 
-      $all_tables = [];
-      while ($row = $stmt->fetch()) {
-         $all_tables[] = $row['Tables_in_cogip'];
-      }
+   $stmt->execute();
+   $data = $stmt->fetchAll();
 
-      $result = false;
-
-      foreach($all_tables as $table_name) {
-         if ($table_to_validat === $table_name) $result = true;
-      }
-
-      return $result;
-   }
-
-   //> SQL Queries </////////////////////////////////
-
-   /* GET */
-
-   function get_by_id (string $table, $id): array {
-      global $pdo;
-
-      $param = [
-         'id' => is_int($id) ? (string)$id : $id
-      ];
-
-      $stmt = $pdo->prepare("SELECT * FROM $table WHERE id=:id");
-      $stmt->execute($param);
-      $data = $stmt->fetch(); 
-
-      return $data;
-   }
+   return array_reverse($data);
+}
 
 
-   
-   function get_many (string $table, $limit = null): array {
-      global $pdo;
+function get_many_contacts($limit = 20) {
+   global $pdo;
 
-      if ($limit) {
-         $limit = is_int($limit) ? (string)$limit : $limit;     
-         $stmt = $pdo->prepare("SELECT * FROM $table ORDER BY id DESC LIMIT $limit");
-      }
-      else {
-         $stmt = $pdo->prepare("SELECT * FROM $table ORDER BY id DESC");      
-      }
+   $sql = <<<SQL
+   SELECT
+      contacts.id AS contact_id,
+      concat(first_name, Last_name) AS full_name,
+      mail,
+      phone,
+      contacts.company,
+      company.id,
+      company_name
+   FROM contacts
+   JOIN company
+      ON contacts.company = company.id
+   ORDER BY contacts.id DESC
+   LIMIT $limit
+SQL;
 
-      $stmt->execute();
-      $data = $stmt->fetchAll();
+   $stmt = $pdo->prepare($sql);      
 
-      return array_reverse($data);
-   }
+   $stmt->execute();
+   $data = $stmt->fetchAll();
 
-
-
-   function get_by_foreign_key (string $table, string $foreign_key, $id): array {
-      global $pdo;
-   
-      $stmt = $pdo->prepare("SELECT * FROM $table WHERE $foreign_key = $id");      
-   
-      $stmt->execute();
-      $data = $stmt->fetchAll();
-   
-      return $data;
-   }
-
-   /* POST */
-
-   function create_company(string $name, string $vat, string $country, $type): void {
-      global $pdo;
-
-      $param = [
-         'name' => $name,
-         'vat' => $vat,
-         'country' => $country,
-         'type' => $type
-      ];
-
-      $stmt = $pdo->prepare('INSERT INTO company (company_name, VAT, country, type) VALUE (:name, :vat, :country, :type)');
-      $stmt->execute($param);
-   }
+   return array_reverse($data);
+}
 
 
-   function create_invoices (string $number, $company, $company_type, $contact): void {
-      global $pdo;
+function get_many_companies($limit = 20) {
+   global $pdo;
 
-      $param = [
-         'number' => $number,
-         'company' => $company,
-         'company_type' => $company_type,
-         'contact' => $contact
-      ];
+   $sql = <<<SQL
+   SELECT
+      company.id AS company_id,
+      company_name,
+      VAT,
+      company.type_id,
+      country,
+      company_type AS type, 
+      type.id 
+   FROM company 
+   JOIN type
+      ON company.type_id = type.id
+   ORDER BY company.id DESC
+   LIMIT $limit
+SQL;
 
-      $stmt = $pdo->prepare('INSERT INTO company (number, company, company_type, contact) VALUE (:number, :company, :company_type, :contact)');
-      $stmt->execute($param);
-   }
+   $stmt = $pdo->prepare($sql);      
+
+   $stmt->execute();
+   $data = $stmt->fetchAll();
+
+   return array_reverse($data);
+}
+
+/* POST */
+
+function create_company(string $name, string $vat, string $country, $type): void {
+   global $pdo;
+
+   $param = [
+      'name' => $name,
+      'vat' => $vat,
+      'country' => $country,
+      'type' => $type
+   ];
+
+   $stmt = $pdo->prepare('INSERT INTO company (company_name, VAT, country, type) VALUE (:name, :vat, :country, :type)');
+   $stmt->execute($param);
+}
 
 
-   function create_contact (string $first_name, string $last_name, string $email, $company, $phone): void {
-      global $pdo;
+function create_invoices (string $number, $company, $company_type, $contact): void {
+   global $pdo;
 
-      $param = [
-         'first_name' => $first_name,
-         'last_name' => $last_name,
-         'mail' => $email,
-         'company' => $company,
-         'phone' => $phone
-      ];
+   $param = [
+      'number' => $number,
+      'company' => $company,
+      'company_type' => $company_type,
+      'contact' => $contact
+   ];
 
-      $stmt = $pdo->prepare('INSERT INTO contacts (first_name, last_name, mail, company, phone) VALUE (:first_name, :last_name, :mail, :company, :phone)');
-      $stmt->execute($param);
-   }
+   $stmt = $pdo->prepare('INSERT INTO company (number, company, company_type, contact) VALUE (:number, :company, :company_type, :contact)');
+   $stmt->execute($param);
+}
 
-   /* PUT */
 
-   /* DELETE */
+function create_contact (string $first_name, string $last_name, string $email, $company, $phone): void {
+   global $pdo;
 
-   //> Utility </////////////////////////////////
+   $param = [
+      'first_name' => $first_name,
+      'last_name' => $last_name,
+      'mail' => $email,
+      'company' => $company,
+      'phone' => $phone
+   ];
 
-   function dump($var) {
-      echo '<pre>';
-      var_dump($var);
-      echo '</pre>';
-   }
+   $stmt = $pdo->prepare('INSERT INTO contacts (first_name, last_name, mail, company, phone) VALUE (:first_name, :last_name, :mail, :company, :phone)');
+   $stmt->execute($param);
+}
+
+/* PUT */
+
+/* DELETE */
+
+//> Utility </////////////////////////////////
+
+function dump($var) {
+   echo '<pre>';
+   var_dump($var);
+   echo '</pre>';
+}
 ?>
