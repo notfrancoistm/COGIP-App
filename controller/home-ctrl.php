@@ -2,22 +2,20 @@
 require 'model/home-mdl.php';
 
 $string_input = 'wail madrane';
-//var_dump(string_validation($string_input));
-
-//$invoices_data = get_many('invoices', 5);
-//$contacts_data = get_many('contacts', 5);
-//$compagnies_data = get_many('company', 5);
 
 $invoices_data = get_many_invoices(5);
 $contacts_data = get_many_contacts(5);
 $companies_data = get_many_companies(5);
 
-// dump($contacts_data);
+/*POST*/
+// create_company('test2', 'test2', 'test2', 1);
+// create_invoices('1', 1, 1, 1);
+// create_contact('test', 'test', 'test@test.es', 2, '0001');
 
-//echo '<pre>';
- //  print_r($contacts_data);
-//echo '</pre>';
+/*PUT*/
+// update_company(12, 'pouchita', 'pouchita', 'pouchita', 1);
+// update_invoice(20, '256', 1, 1, 1);
+// update_contact($id, string $first_name, string $last_name, string $email, $company, $phone);
 
 require 'view/home-view.php';
 ?>
-

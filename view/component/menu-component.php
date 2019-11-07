@@ -19,7 +19,7 @@
           <a class="dropdown-item" href="?page=compagnies-create">New company</a>
           <a class="dropdown-item" href="?page=contacts-create">New contact</a>
           <?php endif ?>
-          <a class="dropdown-item">Log out</a>
+          <a class="dropdown-item" href="?page=logout">Log out</a>
           </div>
         </div>
       </div>

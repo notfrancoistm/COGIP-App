@@ -9,6 +9,7 @@ require 'model/dbconnect.php';
 // session
 require 'session.php';
 authentification();
+deconnection();
 
 // Header
 require 'view/component/header-component.php';

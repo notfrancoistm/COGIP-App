@@ -11,7 +11,9 @@ function routing () {
    }
 
    // Menu
-   require 'view/component/menu-component.php';
+   if ($_GET['page'] !== 'logout') {
+       require 'view/component/menu-component.php';
+   }
 
    // if $_GET['page'] is set, sanitize the value and create the page path
    // if not go to home page
