@@ -1,98 +1,93 @@
 <?php
-   //> Validation </////////////////////////////////
+require 'model/GLOBfunction.php';
 
-   /* User input */
+function get_many_invoices($limit = 20) {
+   global $pdo;
 
-   function string_validation (string $input = ''): bool {
-      $pattern = '/^[a-zA-Z ]{3,50}$/';
-      return preg_match($pattern, trim($input)) ? true : false;
-   }
+   $sql = <<<SQL
+   SELECT
+      invoices.id AS invoice_id,
+      invoices.number,
+      invoices.date,  
+      invoices.company,    
+      company.company_name, 
+      invoices.company_type,
+      type.company_type,    
+      invoices.contact,
+      concat(contacts.first_name, ' ', contacts.last_name) AS contacts_full_name     
+   FROM invoices
+   JOIN company
+      ON invoices.company = company.id      
+   JOIN type
+      ON invoices.company_type = type.id     
+   JOIN contacts
+      ON invoices.contact = contacts.id
+   ORDER BY invoices.id DESC
+   LIMIT $limit
+SQL;
 
-   function country_validation (string $input = ''): bool {
-      $pattern = '/^[A-Z]{2} ?0[0-9]{3} ?[0-9]{3} ?[0-9]{3}$/';
-      return preg_match($pattern, trim($input)) ? true : false;
-   }
+   $stmt = $pdo->prepare($sql);      
 
-   function email_validation (string $input = ''): bool {
-      return filter_var(trim($input), FILTER_VALIDATE_EMAIL) ? true : false;
-   }
+   $stmt->execute();
+   $data = $stmt->fetchAll();
 
-   function phone_validation (string $input = ''): bool {
-      $pattern = '/^(\+?)([0-9] ?){9,20}$/';
-      return preg_match($pattern, trim($input)) ? true : false;
-   }
+   return array_reverse($data);
+}
 
-   function invoice_number_validation (string $input = ''): bool {
-      $pattern = '/^[A-Z]{1}[0-9]{8}-[0-9]{3}$/';
-      return preg_match($pattern, ucfirst(trim($input))) ? true : false;
-   }
 
-   function id_validation (string $input = ''): bool {
-      $pattern = '/^[1-9][0-9]{0,50}$/';
-      return preg_match($pattern, trim($input)) ? true : false;
-   }
+function get_many_contacts($limit = 20) {
+   global $pdo;
 
-   function table_validation (string $table_to_validat): bool {
-      global $pdo;
-      $table_to_validat = trim(strtolower($table_to_validat));
+   $sql = <<<SQL
+   SELECT
+      contacts.id AS contact_id,
+      concat(first_name, Last_name) AS full_name,
+      mail,
+      phone,
+      contacts.company,
+      company.id,
+      company_name
+   FROM contacts
+   JOIN company
+      ON contacts.company = company.id
+   ORDER BY contacts.id DESC
+   LIMIT $limit
+SQL;
 
-      $stmt = $pdo->query("SHOW TABLES");
+   $stmt = $pdo->prepare($sql);      
 
-      $all_tables = [];
-      while ($row = $stmt->fetch()) {
-         $all_tables[] = $row['Tables_in_cogip'];
-      }
+   $stmt->execute();
+   $data = $stmt->fetchAll();
 
-      $result = false;
+   return array_reverse($data);
+}
 
-      foreach($all_tables as $table_name) {
-         if ($table_to_validat === $table_name) $result = true;
-      }
 
-      return $result;
-   }
+function get_many_companies($limit = 20) {
+   global $pdo;
 
-   //> SQL Queries </////////////////////////////////
+   $sql = <<<SQL
+   SELECT
+      company.id AS company_id,
+      company_name,
+      VAT,
+      company.type_id,
+      country,
+      company_type AS type, 
+      type.id 
+   FROM company 
+   JOIN type
+      ON company.type_id = type.id
+   ORDER BY company.id DESC
+   LIMIT $limit
+SQL;
 
-   /* GET */
+   $stmt = $pdo->prepare($sql);      
 
-   function get_by_id (string $table, $id): array {
-      global $pdo;
+   $stmt->execute();
+   $data = $stmt->fetchAll();
 
-      $param = [
-         'id' => is_int($id) ? (string)$id : $id
-      ];
+   return array_reverse($data);
+}
 
-      $stmt = $pdo->prepare("SELECT * FROM $table WHERE id=:id");
-      $stmt->execute($param);
-      $data = $stmt->fetch(); 
-
-      return $data;
-   }
-   
-   
-   function get_many (string $table, $limit = null): array {
-      global $pdo;
-
-      if ($limit) {
-         $limit = is_int($limit) ? (string)$limit : $limit;     
-         $stmt = $pdo->prepare("SELECT * FROM $table ORDER BY id DESC LIMIT $limit");
-      }
-      else {
-         $stmt = $pdo->prepare("SELECT * FROM $table ORDER BY id DESC");      
-      }
-
-      $stmt->execute();
-      $data = $stmt->fetchAll();
-
-      return array_reverse($data);
-   }
-
-   /* POST */
-
-   
-
-   /* PUT */
-
-   /* DELETE */
 ?>

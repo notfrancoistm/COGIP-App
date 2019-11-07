@@ -23,6 +23,8 @@
                 <th scope="col">Invoice Number</th>
                 <th scope="col">Date</th>
                 <th scope="col">Company</th>
+                <th scope="col">Type</th> 
+                <th scope="col">Contact</th>   
                 <th scope="col">Delete</th>
                 <th scope="col">Update</th>
                 <th scope="col">Details</th>          
@@ -31,10 +33,12 @@
         <tbody>
             <?php foreach($invoices_data as $invoice) :?>
             <tr>          
-                <th scope="row"><?=$invoice['ID']?></th>
+                <th scope="row"><?=$invoice['invoice_id']?></th>
                 <td><?=$invoice['number']?></td>
                 <td><?=date('Y-m-d', strtotime($invoice['date']))?></td>
-                <td><?=$invoice['company']?></td>
+                <td><?=$invoice['company_name']?></td>
+                <td><?=$invoice['company_type']?></td>
+                <td><?=$invoice['contacts_full_name']?></td>
                 <?php if ($_SESSION['rights'] === 'god') :?>
                 <td><a href="?page=invoices-delete&id=<?=$invoice['ID']?>" class="fa fa-trash" aria-hidden="true"></a></td>
                 <td><a href="?page=invoices-edit&id=<?=$invoice['ID']?>" class="fa fa-pencil" aria-hidden="true"></a></td>
@@ -67,11 +71,11 @@
         <tbody>
             <?php foreach($contacts_data as $contact) :?>
             <tr>          
-                <th scope="row"><?=$contact['ID']?></th>
-                <td><?=$contact['first_name'] . ' ' . $contact['last_name']?></td>
+                <th scope="row"><?=$contact['contact_id']?></th>
+                <td><?=$contact['full_name']?></td>
                 <td><?=$contact['phone']?></td>
                 <td><?=$contact['mail']?></td>
-                <td><?=$contact['company']?></td>
+                <td><?=$contact['company_name']?></td>
                 <?php if ($_SESSION['rights'] === 'god') :?>
                 <td><a href="?page=contacts-delete&id=<?=$contact['ID']?>" class="fa fa-trash" aria-hidden="true"></a></td>
                 <td><a href="?page=contacts-edit&id=<?=$contact['ID']?>" class="fa fa-pencil" aria-hidden="true"></a></td>
@@ -102,9 +106,9 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach($compagnies_data as $company) :?>
+            <?php foreach($companies_data as $company) :?>
             <tr>          
-                <th scope="row"><?=$company['ID']?></th>
+                <th scope="row"><?=$company['company_id']?></th>
                 <td><?=$company['company_name']?></td>
                 <td><?=$company['VAT']?></td>
                 <td><?=$company['country']?></td>
