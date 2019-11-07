@@ -1,31 +1,44 @@
-<h1>invoice delete page</h1>
-<div class="btn-container">
-    <div class="btn-container-box">
-        <a href="?page=invoices-create"><button type="button" class="btn btn-outline-success">add invoices</button></button>
-        <a href="?page=invoices-edit"><button type="button" class="btn btn-outline-secondary">edit invoices</button></a>
-        <a href="?page=invoices-delete"><button type="button" class="btn btn-outline-danger">delete invoices</button></a>
+<div class="globalelement row justify-content-center">
+    <div class="card col-md-4">
+        <h5 class="row card-header">
+        <strong class="invoices">Details</strong>
+        </h5>
+
+        <form class="invoices" style="color: rgb(112, 193, 247) ;" action="" method="post" name="invoices">
+            <div class="row">
+                <div class="col-md-8">
+                    <h5 style="color:black" name="invoices_number" id="invoices_number">Invoice Number</h5>
+                    <p><?=$invoice['number']?></p>
+                </div>
+
+                <div class="col-md-8">
+                    <h5 style="color:black" name="date">Date</h5>
+                    <p><?=date('Y-m-d', strtotime($invoice['date']))?></p> 
+                </div>
+
+                <div class="col-md-8">
+                    <h5 style="color:black" name="company">Company</h5>
+                    <p><?=$invoice['company_name']?></p> 
+                </div>
+
+                <div class="col-md-8">
+                    <h5 style="color:black" name="company">Type</h5>
+                    <p><?=$invoice['company_type']?></p> 
+                </div>
+
+                <div class="col-md-8">
+                    <h5 style="color:black" name="company">Contact</h5>
+                    <p><?=$invoice['contacts_full_name']?></p> 
+                </div>
+            </div>
+
+            <?php if ($_SESSION['rights'] === 'god') :?>
+            <div class="row justify-content-center">
+                <button type="submit" name="submit" class="form btn btn-rounded" style="background-color: green; margin: 3px;" value="edit">Edit</button>
+                <button type="submit" name="submit" class="form btn btn-rounded" style="background-color: red; margin: 3px" value="delete">Delete</button>
+            </div>
+            <?php endif ?>
+
+        </form>
     </div>
 </div>
-
-<table class="table table-striped table-responsive-sm">
-    <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Invoice Number</th>
-            <th scope="col">Date</th>
-            <th scope="col">Company</th>  
-            <th scope="col">Type</th> 
-            <th scope="col">Contact</th>         
-        </tr>
-    </thead>
-    <tbody>
-        <tr>          
-            <th scope="row"><?=$invoice['invoice_id']?></th>
-            <td><?=$invoice['number']?></td>
-            <td><?=date('Y-m-d', strtotime($invoice['date']))?></td>
-            <td><?=$invoice['company_name']?></td>
-            <td><?=$invoice['company_type']?></td>
-            <td><?=$invoice['contacts_full_name']?></td>
-        </tr>
-    </tbody>
-</table>

@@ -1,32 +1,37 @@
-<h1>detail of the compagny page</h1>
+<div class="globalelement row justify-content-center">
+    <div class="card col-md-4">
+        <h5 class="row card-header">
+        <strong class="invoices">Details</strong>
+        </h5>
+        
+        <form class="invoices" style="color: rgb(112, 193, 247) ;" action="" method="post" name="invoices">
+            <div class="row">
+                <div class="col-md-8">
+                    <h5 style="color:black" name="name">Name</h5>
+                    <p><?=$company['company_name']?></p>
+                </div>
 
-<?php if ($_SESSION['rights'] === 'god') :?>
-<div class="btn-container">
-    <div class="btn-container-box">
-        <a href="?page=compagnies-create"><button type="button" class="btn btn-outline-success">add company</button></button>
-        <a href="?page=compagnies-edit"><button type="button" class="btn btn-outline-secondary">edit company</button></a>
-        <a href="?page=compagnies-delete"><button type="button" class="btn btn-outline-danger">delete company</button></a>
+                <div class="col-md-8">
+                    <h5 style="color:black" name="vat">VAT</h5>
+                    <p><?=$company['VAT']?></p> 
+                </div>
+
+                <div class="col-md-8">
+                    <h5 style="color:black" name="country">Country</h5>
+                    <p><?=$company['country']?></p> 
+                </div>
+
+                <div class="col-md-8">
+                    <h5 style="color:black" name="type">Type</h5>
+                    <p><?=$company['type']?></p> 
+                </div>
+            </div>
+            <?php if ($_SESSION['rights'] === 'god') :?>
+            <div class="row justify-content-center">
+                <button type="submit" name="submit" class="form btn btn-rounded" style="background-color: green; margin: 3px;" value="edit">Edit</button>
+                <button type="submit" name="submit" class="form btn btn-rounded" style="background-color: red; margin: 3px" value="delete">Delete</button>
+            </div>
+            <?php endif ?>
+        </form>
     </div>
 </div>
-<?php endif ?>
-
-<table class="table table-striped table-responsive-sm">
-    <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">VAT</th>
-            <th scope="col">Country</th>
-            <th scope="col">Type</th>  
-        </tr>
-    </thead>
-    <tbody>
-        <tr>          
-            <th scope="row"><?=$company['company_id']?></th>
-            <td><?=$company['company_name']?></td>
-            <td><?=$company['VAT']?></td>
-            <td><?=$company['country']?></td>
-            <td><?=$company['type']?></td>
-        </tr>
-    </tbody>
-</table>
