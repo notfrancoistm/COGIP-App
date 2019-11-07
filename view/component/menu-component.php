@@ -24,6 +24,7 @@
         <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</button>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="?page=dashboard">Dashboard</a>
+            <a class="dropdown-item" href="?page=user-manager">User manager</a>
             <a class="dropdown-item" href="?page=invoices-create">New invoice</a>
             <a class="dropdown-item" href="?page=compagnies-create">New company</a>
             <a class="dropdown-item" href="?page=contacts-create">New contact</a>
