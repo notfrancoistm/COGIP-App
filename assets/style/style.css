@@ -1,16 +1,37 @@
 body{
     height: 100%;
+    background-color: white;
+}
+nav {
+  margin-bottom: 5vh;
 }
 
-img.logo {
-    width: 120px;
+.band{
+  height: 10vh;
+  background-color: rgb(112, 193, 247);
+  color: black;
+}
+
+.logo {
+    width: 20vh;
     height: auto;
 }
+
+form {
+  padding: 2vh;
+} 
+
+.globalelement{
+  margin: 20px;
+}
+
 .btn-container {
     width: 0 auto;
     padding: 30px;
     text-align: center;
 }
+
+
 
 /* Set height of body and the document to 100% to enable "full page tabs" */
   
@@ -38,8 +59,3 @@ img.logo {
     padding: 100px 20px;
     height: 100%;
   }
-  
-  #Home {background-color: red;}
-  #News {background-color: green;}
-  #Contact {background-color: blue;}
-  #About {background-color: orange;}

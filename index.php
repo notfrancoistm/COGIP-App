@@ -13,8 +13,8 @@ authentification();
 // Header
 require 'view/component/header-component.php';
 
-// unset($_SESSION);
-// session_destroy();
+//unset($_SESSION);
+//session_destroy();
 
 // routing
 require 'routing.php';
