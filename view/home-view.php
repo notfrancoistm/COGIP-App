@@ -1,17 +1,15 @@
-<div class="row">
-    <div class="col-md-4">
-        <h3>Bonjour <?=$_SESSION['username']?> !</h3>
-    </div>
+<div class="globalelement row justify-content-center">
+    <h5>Bonjour, <?=$_SESSION['username']?> !</h5>
 </div>
 
-<div class="row">
-    <div class="btn-container col-md-12">
-        <div class="btn-container-box">
-            <button type="button" class="btn btn-outline-success tablink" onclick="openPage('lastInvoice', this, '')">Last invoices</button>
-            <button type="button" class="btn btn-outline-success tablink" onclick="openPage('lastContacts', this, '')">Last contacts</button>
-            <button type="button" class="btn btn-outline-success tablink" onclick="openPage('lastCompanies', this, '')">Last companies</button>
+<div class="row globalelement">
+   <div class="col-md-2"></div>
+        <div class="btn-group btn-group-lg col-md-8" >
+            <button type="button" class="btn btn-outline tablink" onclick="openPage('lastInvoice', this, '')">Last invoices</button>
+            <button type="button" class="btn btn-outline tablink" onclick="openPage('lastContacts', this, '')">Last contacts</button>
+            <button type="button" class="btn btn-outline tablink" onclick="openPage('lastCompanies', this, '')">Last companies</button>
         </div>
-    </div>
+   <div class="col-md-2"></div>
 </div>
 
 <!-- last invoices -->

@@ -10,10 +10,17 @@
         <a class="nav-item nav-link" href="?page=compagnies">Compagnies</a>
         <a class="nav-item nav-link" href="?page=contacts">Contacts</a>
 
+        <div class="btn-group dropdown">
+        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?=$_SESSION['username']?></button>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item">Log out</a>
+          </div>
+        </div>
+
 
         <!-- ONLY for admin -->
         <?php if ($_SESSION['rights'] === 'god') :?> 
-        <div class="btn-group dropright">
+        <div class="btn-group dropdown">
         <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</button>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="?page=dashboard">Dashboard</a>
@@ -24,15 +31,11 @@
         </div>
         <?php endif ?>
         <!---->
-      </div>
+        
+
+        </div>
 
       
     </div>
   </nav>
   
-  <div class="btn-group dropright">
-          <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><a class="nav-item nav-link" href="?page=dashboard"><?=$_SESSION['username']?></a></button>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a href="#" data-toggle="modal" data-target="#logoutModal">logout</a>
-            </div>
-        </div>
