@@ -1,1 +1,0 @@
-<h1>provider of the company</h1>

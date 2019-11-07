@@ -9,34 +9,20 @@
         <a class="nav-item nav-link" href="?page=invoices">Invoices</a>
         <a class="nav-item nav-link" href="?page=compagnies">Compagnies</a>
         <a class="nav-item nav-link" href="?page=contacts">Contacts</a>
-
         <div class="btn-group dropdown">
         <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?=$_SESSION['username']?></button>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item">Log out</a>
+          <?php if ($_SESSION['rights'] === 'god') :?>
+          <a class="dropdown-item" href="?page=dashboard">Dashboard</a>
+          <a class="dropdown-item" href="?page=user-manager">User manager</a>
+          <a class="dropdown-item" href="?page=invoices-create">New invoice</a>
+          <a class="dropdown-item" href="?page=compagnies-create">New company</a>
+          <a class="dropdown-item" href="?page=contacts-create">New contact</a>
+          <?php endif ?>
+          <a class="dropdown-item">Log out</a>
           </div>
         </div>
-
-
-        <!-- ONLY for admin -->
-        <?php if ($_SESSION['rights'] === 'god') :?> 
-        <div class="btn-group dropdown">
-        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</button>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="?page=dashboard">Dashboard</a>
-            <a class="dropdown-item" href="?page=user-manager">User manager</a>
-            <a class="dropdown-item" href="?page=invoices-create">New invoice</a>
-            <a class="dropdown-item" href="?page=compagnies-create">New company</a>
-            <a class="dropdown-item" href="?page=contacts-create">New contact</a>
-          </div>
-        </div>
-        <?php endif ?>
-        <!---->
-        
-
-        </div>
-
-      
+      </div>
     </div>
   </nav>
   

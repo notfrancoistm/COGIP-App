@@ -128,7 +128,7 @@ CREATE TABLE `type` (
 
 INSERT INTO `type` (`ID`, `company_type`) VALUES
 (1, 'client'),
-(2, 'supplier');
+(2, 'provider');
 
 -- --------------------------------------------------------
 

@@ -1,7 +1,7 @@
 <div id="lastInvoice" class="globalelement row justify-content-center">
     <div class="card text-center col-md-10">
         <h5 class="row card-header">
-        <strong class="invoices">Last invoices</strong>
+        <strong class="invoices">Invoices</strong>
         </h5>
         <div class="row justify-content-center">
             <table class="table table-striped table-responsive-sm">
