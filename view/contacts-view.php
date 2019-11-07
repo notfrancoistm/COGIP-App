@@ -1,7 +1,7 @@
 <div id="lastContacts" class="globalelement row justify-content-center">
     <div class="card text-center col-md-10">
         <h5 class="row card-header">
-        <strong class="contacts">Last contacts</strong>
+        <strong class="contacts">Contacts</strong>
         </h5>
 
         <div class="row justify-content-center">
