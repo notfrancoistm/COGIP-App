@@ -29,8 +29,8 @@
 
             <?php if ($_SESSION['rights'] === 'god') :?>
             <div class="row justify-content-center">
-                <button type="submit" name="submit" class="form btn btn-rounded" style="background-color: green; margin: 3px;" value="edit">Edit</button>
-                <button type="submit" name="submit" class="form btn btn-rounded" style="background-color: red; margin: 3px" value="delete">Delete</button>
+                <button type="submit" name="submit" class="form btn btn-rounded btn-outline-secondary" style="margin: 3px;" value="edit">Edit</button>
+                <button type="submit" name="submit" class="form btn btn-rounded btn-outline-secondary" style="margin: 3px" value="delete">Delete</button>
             </div>
             <?php endif ?>
             
