@@ -1,6 +1,6 @@
 <?php
 // dump($contact);
-dump($companies_data[0]);
+// dump($companies_data[0]);
 ?>
 <div class="globalelement row justify-content-center">
     <div class="card text-center col-md-4">
@@ -27,7 +27,7 @@ dump($companies_data[0]);
                     <select class="form-control" name="gender" id="gender" required>
                     <option value="none" selected disabled hidden>Company</option> 
                     <?php foreach($companies_data as $company) : ?>
-                        
+                        <option value="<?=$company['company_id']?>" <?=is_selected($contact['company'], $company['company_id'])?> ><?=$company['company_name']?></option>
                     <?php endforeach ?>
                     </select>
                 </div>
