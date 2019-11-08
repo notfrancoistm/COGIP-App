@@ -8,8 +8,13 @@ function string_validation (string $input = ''): bool {
    return preg_match($pattern, trim($input)) ? true : false;
 }
 
+// function country_validation (string $input = ''): bool {
+//    $pattern = '/^[A-Z]{2} ?0[0-9]{3} ?[0-9]{3} ?[0-9]{3}$/';
+//    return preg_match($pattern, trim($input)) ? true : false;
+// }
+
 function country_validation (string $input = ''): bool {
-   $pattern = '/^[A-Z]{2} ?0[0-9]{3} ?[0-9]{3} ?[0-9]{3}$/';
+   $pattern = '/^[A-Z]{2}$/';
    return preg_match($pattern, trim($input)) ? true : false;
 }
 
@@ -24,6 +29,11 @@ function phone_validation (string $input = ''): bool {
 
 function invoice_number_validation (string $input = ''): bool {
    $pattern = '/^[A-Z]{1}[0-9]{8}-[0-9]{3}$/';
+   return preg_match($pattern, ucfirst(trim($input))) ? true : false;
+}
+
+function vat_validation (string $input = ''): bool {
+   $pattern = '/^[A-Z]{2}[0-9]{5,10}$/';
    return preg_match($pattern, ucfirst(trim($input))) ? true : false;
 }
 
@@ -384,10 +394,10 @@ function update_company ($id, string $name, string $vat, string $country, $type)
    $sql = <<<SQL
    UPDATE company
    SET 
-      name = :name, 
+      company_name = :name, 
       vat = :vat,
       country = :country,
-      type = :type
+      type_id = :type
    WHERE id = :id
 SQL;
 

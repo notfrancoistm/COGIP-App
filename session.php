@@ -79,7 +79,6 @@ function authentification () {
 
 function deconnection () {
    if ($_GET['page'] === 'logout') {
-      unset($_SESSION);
       session_destroy();
       header('location: index.php');
    }
