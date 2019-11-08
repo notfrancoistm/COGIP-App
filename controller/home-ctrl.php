@@ -8,7 +8,7 @@ $contacts_data = get_many_contacts(5);
 $companies_data = get_many_companies(5);
 
 /*POST*/
-// create_company('test2', 'test2', 'test2', 1);
+// create_company('pouchi', 'pouchi', 'pouchi', 2);
 // create_invoices('1', 1, 1, 1);
 // create_contact('test', 'test', 'test@test.es', 2, '0001');
 
@@ -16,6 +16,9 @@ $companies_data = get_many_companies(5);
 // update_company(12, 'pouchita', 'pouchita', 'pouchita', 1);
 // update_invoice(20, '256', 1, 1, 1);
 // update_contact($id, string $first_name, string $last_name, string $email, $company, $phone);
+
+/*DELETE*/
+// delete_row('company', 13);
 
 require 'view/home-view.php';
 ?>
