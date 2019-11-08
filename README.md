@@ -27,18 +27,18 @@ _Dear colleagues, the wait is over! The new, shiny accounting assistant is here,
 
 The making of the COGIP app is a challenge given to us by our coachs at BeCode. Our goal: create a web app to help the accountants of the COGIP visualize invoices,contacts,clients and suppliers. All that while using an MVC architecture, a router, permissions and sessions setup, sanitization, validation, and implementing a CRUD (amongst other things). 
 
-**durée:~10jours. Du 28/10/2019 au 08/11/2019**
+**time:~10days. from 28/10/2019 to 08/11/2019**
 
-[lien vers les consignes (EN)](https://github.com/becodeorg/BXL-Johnson-4.14/tree/master/06-PHP/cogip)
+[link to the challenge (EN)](https://github.com/becodeorg/BXL-Johnson-4.14/tree/master/06-PHP/cogip)
 
 
-## Qui en fait partie?
+## Who made it?
 
 * [Waïl Madrane](https://github.com/wailmadrane)
 * [François Thibaut de Maisières](https://github.com/FrancoisTM)
 * [Alice Rouben](https://github.com/Frankiethezombie)
 
 
-## Et le contenu?
+## What's inside?
 
-Une base de données, du MVC, HTML, CSS, du SQL, du sang, des larmes, et des petits bouts de rèves pour le faire vivre. Le tout créé de A à Z, avec comme base des instructions écrites, et une maquette plus ou moins précise. 
+A database,an MVC system, HTML, CSS, SQL queries, blood, tears, and little bits of dreams to make it live. Everything was created from A to Z, with written instructions and anot so accurate mockup as a base. 
