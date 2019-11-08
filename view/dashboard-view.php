@@ -4,7 +4,7 @@
 
 <!-- last invoices -->
 <div id="lastInvoice" class="globalelement row justify-content-center">
-    <div class="card text-center col-md-12">
+    <div class="card text-center col-md-10">
         <h5 class="row card-header">
         <strong class="invoices">Last invoices</strong>
         </h5>
@@ -43,7 +43,7 @@
 
 <!-- last Contacts -->
 <div id="lastContacts" class="globalelement row justify-content-center">
-    <div class="card text-center col-md-12">
+    <div class="card text-center col-md-10">
         <h5 class="row card-header">
         <strong class="contacts">Last contacts</strong>
         </h5>
@@ -86,7 +86,7 @@
 
 <!-- last Companies -->
 <div id="lastCompanies" class="globalelement row justify-content-center">
-    <div class="card text-center col-md-12">
+    <div class="card text-center col-md-10">
         <h5 class="row card-header">
         <strong class="companies">Last companies</strong>
         </h5>
