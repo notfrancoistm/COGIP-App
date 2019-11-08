@@ -20,7 +20,7 @@ $submit = isset($_POST['submit']);
 
 // if all is valide update db
 if ($company_name__val AND $vat_number__val AND $country__val AND $submit) {
-   update_company($id, $company_name, $vat_number, $country, $type);
+   update_company($id, $company_name, $vat_number, $country, $company_type);
 }
 
 require 'view/compagnies-edit-view.php';
