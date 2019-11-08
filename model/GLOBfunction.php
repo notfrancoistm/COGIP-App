@@ -202,7 +202,7 @@ function get_many_contacts($limit = null) {
    $sql = <<<SQL
    SELECT
       contacts.id AS contact_id,
-      concat(first_name, Last_name) AS full_name,
+      concat(first_name, ' ', Last_name) AS full_name,
       mail,
       phone,
       contacts.company,

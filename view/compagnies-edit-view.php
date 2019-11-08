@@ -1,5 +1,5 @@
 <?php
-dump($company);
+// dump($company);
 ?>
 <div class="globalelement row justify-content-center">
     <div class="card text-center col-md-4">

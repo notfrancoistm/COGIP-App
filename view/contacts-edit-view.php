@@ -24,8 +24,7 @@
                 </div>
 
                 <div class="form-group col-md-8">
-                    <select class="form-control" name="gender" id="gender" required>
-                    <option value="none" selected disabled hidden>Company</option> 
+                    <select class="form-control" name="company" required>
                     <?php foreach($companies_data as $company) : ?>
                         <option value="<?=$company['company_id']?>" <?=is_selected($contact['company'], $company['company_id'])?> ><?=$company['company_name']?></option>
                     <?php endforeach ?>
