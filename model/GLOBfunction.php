@@ -133,7 +133,9 @@ function get_contact_by_id ($id) {
    $sql = <<<SQL
    SELECT
       contacts.id AS contact_id,
-      concat(first_name, Last_name) AS full_name,
+      first_name,
+      last_name,
+      concat(first_name, ' ', last_name) AS full_name,
       mail,
       phone,
       contacts.company,
@@ -261,6 +263,21 @@ SQL;
    }
 
    return array_reverse($all_data);
+}
+
+function get_all_types() {
+   global $pdo;
+
+   $sql = <<<SQL
+   SELECT *
+   FROM type
+SQL;
+
+   $stmt = $pdo->prepare($sql);      
+   $stmt->execute();
+
+   $all_data = $stmt->fetchAll();
+   return $all_data;
 }
 
 /* POST */
@@ -425,6 +442,10 @@ SQL;
 }
 
 //> Utility </////////////////////////////////
+
+function is_selected ($operator1, $operator2) {
+   return $operator1 === $operator2 ? 'selected' : '';
+}
 
 function dump($var) {
    echo '<pre>';
