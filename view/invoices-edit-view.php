@@ -13,10 +13,12 @@
             <div class="row justify-content-center">
 
                 <div class="form-group col-md-8">
+                    <label for="invoices_number">invoice number</label>
                     <input class="form-control" name="invoices_number" value="<?=$invoice['number']?>" id="invoices_number" type="text" placeholder="Invoices number" required autofocus>
                 </div>
 
                 <div class="form-group col-md-8">
+                    <label for=""></label>
                     <select class="form-control" name="company" required>
                     <?php foreach($companies_data as $company) : ?>
                         <option value="<?=$company['company_id']?>" <?=is_selected($invoice['company'], $company['company_id'])?> ><?=$company['company_name']?></option>
