@@ -28,8 +28,8 @@
             </div>
             <?php if ($_SESSION['rights'] === 'god') :?>
             <div class="row justify-content-center">
-                <button type="submit" name="submit" class="form btn btn-rounded btn-outline btn-outline-secondary" style="margin: 3px;" value="edit">Edit</button>
-                <button type="submit" name="submit" class="form btn btn-rounded btn-outline btn-outline-secondary" style="margin: 3px" value="delete">Delete</button>
+                <a href="?page=compagnies-edit&id=<?=$id?>" class="form btn btn-rounded btn-outline btn-outline-secondary" style="margin: 3px;">Edit</a>
+                <a href="?page=compagnies-delete&id=<?=$id?>" class="form btn btn-rounded btn-outline btn-outline-secondary" style="margin: 3px">Delete</a>
             </div>
             <?php endif ?>
         </form>
