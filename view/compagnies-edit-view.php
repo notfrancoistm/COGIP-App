@@ -8,7 +8,7 @@
             <div class="row justify-content-center">
 
                 <div class="form-group col-md-8">
-                    <input class="form-control" name="company_name" id="company_name" type="text" placeholder="Name of the company" required autofocus>
+                    <input class="form-control" name="company_name" value="<?=$company['company_name']?>" id="company_name" type="text" placeholder="Name of the company" required autofocus>
                 </div>
 
                 <div class="form-group col-md-8">
