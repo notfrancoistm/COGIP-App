@@ -11,14 +11,17 @@ dump($company);
             <div class="row justify-content-center">
 
                 <div class="form-group col-md-8">
+                    <label for="company_name">company</label>
                     <input class="form-control" name="company_name" value="<?=$company['company_name']?>" id="company_name" type="text" placeholder="Name of the company" required autofocus>
                 </div>
 
                 <div class="form-group col-md-8">
+                    <label for="vat_number">VAT</label>
                     <input class="form-control" name="vat_number" value="<?=$company['VAT']?>" id="vat_number" type="text" placeholder="VAT of the company" required>
                 </div>
 
                 <div class="form-group col-md-8">
+                    <label for="country">country</label>
                     <select class="form-control" name="country" value="<?=$company['company_name']?>" id="country" required>
                     <?php require 'component/country.php' ?>
 
@@ -30,6 +33,7 @@ dump($company);
                 </div>
 
                 <div class="form-group col-md-8">
+                    <label for="type">company type</label>
                     <select class="form-control" name="type" id="type" required>
                     <option value="none" selected disabled hidden>Type</option>
                     <?php foreach($types as $type) :?>     
