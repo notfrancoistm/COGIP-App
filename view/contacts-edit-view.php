@@ -1,5 +1,5 @@
 <?php
-dump($contact);
+//dump($contact);
 // dump($companies_data[0]);
 ?>
 <div class="globalelement row justify-content-center">
