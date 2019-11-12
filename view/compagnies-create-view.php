@@ -16,16 +16,23 @@
                 </div>
 
                 <div class="form-group col-md-8">
-                    <select class="form-control" name="country" id="country" required>
+
+                    <select class="form-control" name="country" id="country" required>                  
                         <?php require 'component/country.php' ?>
+
+                        <?php foreach($countries as $key => $value) : ?> 
+                            <option value="<?= $key ?>" <?=is_selected($country, $key)?> title="<?= htmlspecialchars($value) ?>"><?= htmlspecialchars($value) ?></option> 
+                        <?php endforeach ?>
+                    
                     </select>
                 </div>
 
                 <div class="form-group col-md-8">
+
                     <select class="form-control" name="type" id="type" required>
-                    <option value="none" selected disabled hidden>Type</option> 
-                        <option value="client">Client</option>
-                        <option value="provider">Provider</option>
+                        <?php foreach($types as $type) :?>     
+                            <option value="<?=$type['ID']?>" <?=is_selected($company_type, $type['ID'])?> ><?=$type['company_type']?></option>
+                        <?php endforeach ?>
                     </select>
                 </div>
             </div>  
