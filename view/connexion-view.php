@@ -18,7 +18,7 @@
                     <input type="text" id="login" class="form-control login-input rounded" name="username" placeholder="username" autofocus>
                 </div>
                 <div class=" form-group col-md-8">
-                    <input type="text" id="password" class="form-control login-input rounded" name="password" placeholder="password">
+                    <input type="password" id="password" class="form-control login-input rounded" name="password" placeholder="password">
                 </div>
             </div>
             <div class="form-group row justify-content-center">

@@ -12,10 +12,12 @@
                         <th scope="col">Date</th>
                         <th scope="col">Company</th>
                         <th scope="col">Type</th> 
-                        <th scope="col">Contact</th> 
+                        <th scope="col">Contact</th>
+                        <?php if ($_SESSION['rights'] === 'god') :?>
                         <th scope="col">Delete</th>
                         <th scope="col">Update</th>
-                        <th scope="col">Details</th>          
+                        <th scope="col">Details</th>      
+                        <?php endif ?>    
                     </tr>
                 </thead>
                 <tbody>

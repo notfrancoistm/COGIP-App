@@ -12,9 +12,11 @@
                         <th scope="col">VAT</th>
                         <th scope="col">Country</th>
                         <th scope="col">Type</th>
+                        <?php if ($_SESSION['rights'] === 'god') :?>
                         <th scope="col">Delete</th>
                         <th scope="col">Update</th>
-                        <th scope="col">Details</th>  
+                        <th scope="col">Details</th>
+                        <?php endif ?>
                     </tr>
                 </thead>
                 <tbody>

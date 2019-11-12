@@ -13,9 +13,11 @@
                             <th scope="col">Phone</th>
                             <th scope="col">Email</th>
                             <th scope="col">Company</th>
+                            <?php if ($_SESSION['rights'] === 'god') :?>
                             <th scope="col">Delete</th>
                             <th scope="col">Update</th>
-                            <th scope="col">Details</th>  
+                            <th scope="col">Details</th>
+                            <?php endif ?>
                         </tr>
                     </thead>
                     <tbody>
