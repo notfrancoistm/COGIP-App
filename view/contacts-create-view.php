@@ -24,7 +24,7 @@
                         <?php foreach($companies_data as $company) : ?>
                             <option value="<?=$company['company_id']?>" <?=is_selected($contact_company, $company['company_id'])?> ><?=$company['company_name']?></option>
                         <?php endforeach ?>
-                        </select>
+                    </select>
                 </div>
             </div>  
                 

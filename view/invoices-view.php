@@ -12,10 +12,12 @@
                         <th scope="col">Date</th>
                         <th scope="col">Company</th>
                         <th scope="col">Type</th> 
-                        <th scope="col">Contact</th> 
+                        <th scope="col">Contact</th>
+                        <?php if ($_SESSION['rights'] === 'god') :?> 
                         <th scope="col">Delete</th>
-                        <th scope="col">Update</th>
-                        <th scope="col">Details</th>          
+                        <th scope="col">Update</th>       
+                        <?php endif ?> 
+                        <th scope="col">Details</th>  
                     </tr>
                 </thead>
                 <tbody>
@@ -30,8 +32,8 @@
                         <?php if ($_SESSION['rights'] === 'god') :?>
                         <td><a href="?page=invoices-delete&id=<?=$invoice['invoice_id']?>" class="fa fa-trash" aria-hidden="true" data-toggle="modal" data-target="#exampleModalCenter"></a></td>
                         <td><a href="?page=invoices-edit&id=<?=$invoice['invoice_id']?>" class="fa fa-pencil" aria-hidden="true"></a></td>
-                        <td><a href="?page=invoices-details&id=<?=$invoice['invoice_id']?>" class="fa fa-eye" aria-hidden="true"></a></td>          
                         <?php endif ?>
+                        <td><a href="?page=invoices-details&id=<?=$invoice['invoice_id']?>" class="fa fa-eye" aria-hidden="true"></a></td>          
                     </tr>
                     <?php endforeach ?>
                 </tbody>

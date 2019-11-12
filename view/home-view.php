@@ -17,10 +17,13 @@
                         <th scope="col">Date</th>
                         <th scope="col">Company</th>
                         <th scope="col">Type</th> 
-                        <th scope="col">Contact</th>   
+                        <th scope="col">Contact</th>
+                        <?php if ($_SESSION['rights'] === 'god') :?> 
                         <th scope="col">Delete</th>
                         <th scope="col">Update</th>
-                        <th scope="col">Details</th>          
+                        <?php endif ?>  
+                        <th scope="col">Details</th>  
+                              
                     </tr>
                 </thead>
                 <tbody>
@@ -35,8 +38,8 @@
                         <?php if ($_SESSION['rights'] === 'god') :?>
                         <td><a href="?page=invoices-delete&id=<?=$invoice['invoice_id']?>" class="fa fa-trash" aria-hidden="true" data-toggle="modal" data-target="#exampleModalCenter"></a></td>
                         <td><a href="?page=invoices-edit&id=<?=$invoice['invoice_id']?>" class="fa fa-pencil" aria-hidden="true"></a></td>
-                        <td><a href="?page=invoices-details&id=<?=$invoice['invoice_id']?>" class="fa fa-eye" aria-hidden="true"></a></td>          
                         <?php endif ?>
+                        <td><a href="?page=invoices-details&id=<?=$invoice['invoice_id']?>" class="fa fa-eye" aria-hidden="true"></a></td>          
                     </tr>
                     <?php endforeach ?>
                 </tbody>
@@ -61,8 +64,10 @@
                         <th scope="col">Phone</th>
                         <th scope="col">Email</th>
                         <th scope="col">Company</th>
+                        <?php if ($_SESSION['rights'] === 'god') :?>
                         <th scope="col">Delete</th>
                         <th scope="col">Update</th>
+                        <?php endif ?>
                         <th scope="col">Details</th>  
                     </tr>
                 </thead>
@@ -77,8 +82,8 @@
                         <?php if ($_SESSION['rights'] === 'god') :?>
                         <td><a href="?page=contacts-delete&id=<?=$contact['contact_id']?>" class="fa fa-trash" aria-hidden="true" data-toggle="modal" data-target="#exampleModalCenter"></a></td>
                         <td><a href="?page=contacts-edit&id=<?=$contact['contact_id']?>" class="fa fa-pencil" aria-hidden="true"></a></td>
-                        <td><a href="?page=contacts-details&id=<?=$contact['contact_id']?>" class="fa fa-eye" aria-hidden="true"></a></td> 
                         <?php endif ?>
+                        <td><a href="?page=contacts-details&id=<?=$contact['contact_id']?>" class="fa fa-eye" aria-hidden="true"></a></td> 
                     </tr>
                     <?php endforeach ?>
                 </tbody>
@@ -102,9 +107,11 @@
                         <th scope="col">VAT</th>
                         <th scope="col">Country</th>
                         <th scope="col">Type</th>
+                        <?php if ($_SESSION['rights'] === 'god') :?>
                         <th scope="col">Delete</th>
                         <th scope="col">Update</th>
-                        <th scope="col">Details</th>  
+                        <?php endif ?>
+                        <th scope="col">Details</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -118,8 +125,8 @@
                         <?php if ($_SESSION['rights'] === 'god') :?>
                         <td><a href="?page=compagnies-delete&id=<?=$company['company_id']?>" class="fa fa-trash" aria-hidden="true" data-toggle="modal" data-target="#exampleModalCenter"></a></td>
                         <td><a href="?page=compagnies-edit&id=<?=$company['company_id']?>" class="fa fa-pencil" aria-hidden="true"></a></td>
-                        <td><a href="?page=compagnies-details&id=<?=$company['company_id']?>" class="fa fa-eye" aria-hidden="true"></a></td> 
                         <?php endif ?>
+                        <td><a href="?page=compagnies-details&id=<?=$company['company_id']?>" class="fa fa-eye" aria-hidden="true"></a></td> 
                     </tr>
                     <?php endforeach ?>
                 </tbody>
