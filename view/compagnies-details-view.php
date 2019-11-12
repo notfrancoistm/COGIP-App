@@ -29,7 +29,7 @@
             <?php if ($_SESSION['rights'] === 'god') :?>
             <div class="row justify-content-center">
                 <a href="?page=compagnies-edit&id=<?=$id?>" class="form btn btn-rounded btn-outline btn-outline-secondary" style="margin: 3px;">Edit</a>
-                <a href="?page=compagnies-delete&id=<?=$id?>" class="form btn btn-rounded btn-outline btn-outline-secondary" style="margin: 3px">Delete</a>
+                <a href="?page=compagnies-delete&id=<?=$id?>" class="form btn btn-rounded btn-outline btn-outline-secondary" style="margin: 3px" data-toggle="modal" data-target="#exampleModalCenter">Delete</a>
             </div>
             <?php endif ?>
         </form>
