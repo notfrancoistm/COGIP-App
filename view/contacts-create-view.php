@@ -1,3 +1,13 @@
+<?php
+// dump($contact);
+// // dump($companies_data[0]);
+// dump($first_name__val);
+// dump($last_name__val);
+// dump($email__val);
+// dump($contact_company__val);
+// dump($phone__val);
+// dump($submit);
+?>
 <div class="globalelement row justify-content-center">
     <div class="card text-center col-md-4">
         <h5 class="row card-header">
@@ -8,22 +18,31 @@
             <div class="row justify-content-center">
 
                 <div class="form-group col-md-8">
-                    <input class="form-control" name="first_name" id="first_name" type="text" placeholder="First name" required autofocus>
+                    <label for="first_name">first name</label>
+                    <input class="form-control" name="first_name" value="<?=$first_name?>" id="first_name" type="text" placeholder="First name" required autofocus>
                 </div>
 
                 <div class="form-group col-md-8">
-                    <input class="form-control" name="last_name" id="last_name" type="text" placeholder="Last name" required>
+                    <label for="last_name">last name</label>
+                    <input class="form-control" name="last_name" value="<?=$last_name?>" id="last_name" type="text" placeholder="Last name" required>
                 </div>
 
                 <div class="form-group col-md-8">
-                    <input class="form-control" name="email" id="email" type="text" placeholder="Email adress" required>
+                    <label for="email">mail</label>
+                    <input class="form-control" name="email" value="<?=$email?>" id="email" type="text" placeholder="Email adress" required>
                 </div>
 
                 <div class="form-group col-md-8">
+                    <label for="phone">phone</label>
+                    <input class="form-control" name="phone" value="<?=$phone?>" id="phone" type="tel" placeholder="phone" required>
+                </div>
+
+                <div class="form-group col-md-8">
+                    <label for="company">company</label>
                     <select class="form-control" name="company" id="company" required>
-                        <?php foreach($companies_data as $company) : ?>
-                            <option value="<?=$company['company_id']?>" <?=is_selected($contact_company, $company['company_id'])?> ><?=$company['company_name']?></option>
-                        <?php endforeach ?>
+                    <?php foreach($companies_data as $company) : ?>
+                        <option value="<?=$company['company_id']?>"><?=$company['company_name']?></option>
+                    <?php endforeach ?>
                     </select>
                 </div>
             </div>  
