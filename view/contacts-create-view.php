@@ -20,11 +20,11 @@
                 </div>
 
                 <div class="form-group col-md-8">
-                    <select class="form-control" name="gender" id="gender" required>
-                    <option value="none" selected disabled hidden>Gender</option> 
-                        <option value="male">Man</option>
-                        <option value="female">Woman</option>
-                    </select>
+                    <select class="form-control" name="company" id="company" required>
+                        <?php foreach($companies_data as $company) : ?>
+                            <option value="<?=$company['company_id']?>" <?=is_selected($contact_company, $company['company_id'])?> ><?=$company['company_name']?></option>
+                        <?php endforeach ?>
+                        </select>
                 </div>
             </div>  
                 

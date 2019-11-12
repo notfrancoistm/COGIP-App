@@ -26,7 +26,7 @@
                         <td><?=$company['country']?></td>
                         <td><?=$company['type']?></td>
                         <?php if ($_SESSION['rights'] === 'god') :?>
-                        <td><a href="?page=compagnies-delete&id=<?=$company['company_id']?>" class="fa fa-trash" aria-hidden="true"></a></td>
+                        <td><a href="?page=compagnies-delete&id=<?=$company['company_id']?>" class="fa fa-trash" aria-hidden="true" data-toggle="modal" data-target="#exampleModalCenter"></a></td>
                         <td><a href="?page=compagnies-edit&id=<?=$company['company_id']?>" class="fa fa-pencil" aria-hidden="true"></a></td>
                         <td><a href="?page=compagnies-details&id=<?=$company['company_id']?>" class="fa fa-eye" aria-hidden="true"></a></td> 
                         <?php endif ?>

@@ -27,7 +27,7 @@
                             <td><?=$contact['mail']?></td>
                             <td><?=$contact['company_name']?></td>
                             <?php if ($_SESSION['rights'] === 'god') :?>
-                            <td><a href="?page=contacts-delete&id=<?=$contact['contact_id']?>" class="fa fa-trash" aria-hidden="true"></a></td>
+                            <td><a href="?page=contacts-delete&id=<?=$contact['contact_id']?>" class="fa fa-trash" aria-hidden="true" data-toggle="modal" data-target="#exampleModalCenter"></a></td>
                             <td><a href="?page=contacts-edit&id=<?=$contact['contact_id']?>" class="fa fa-pencil" aria-hidden="true"></a></td>
                             <td><a href="?page=contacts-details&id=<?=$contact['contact_id']?>" class="fa fa-eye" aria-hidden="true"></a></td> 
                             <?php endif ?>
