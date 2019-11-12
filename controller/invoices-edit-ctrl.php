@@ -6,10 +6,12 @@ $invoice = get_invoice_by_id($id);
 $companies_data = get_many_companies();
 $contacts_data = get_many_contacts();
 
+if (isset($_POST['company'])) $company_value = explode(',', $_POST['company']);
+
 // assign user value form the form else use the previous data from the db
-$number = $_POST['invoices_number'] ?? $invoice['number'];
-$company_id = $_POST['company'][0] ?? $invoice['company'];
-$type_id = $_POST['company'][1] ?? $invoice['type_id'];
+$number = ucfirst($_POST['invoices_number']) ?? $invoice['number'];
+$company_id = $company_value[0] ?? $invoice['company'];
+$type_id = $company_value[1] ?? $invoice['type_id'];
 $contact = $_POST['contact'] ?? $invoice['type_id'];
 
 // validate inputs

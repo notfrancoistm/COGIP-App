@@ -2,6 +2,12 @@
 // dump($invoice);
 // dump($companies_data[0]);
 // dump($contacts_data[0]);
+
+// dump($number__val);
+// dump($company_id__val);
+// dump($type_id__val);
+// dump($contact__val);
+// dump($submit);
 ?>
 <div class="globalelement row justify-content-center">
     <div class="card text-center col-md-4">
@@ -21,7 +27,7 @@
                     <label for="company">company</label>
                     <select id="company" class="form-control" name="company" required>
                     <?php foreach($companies_data as $company) : ?>
-                        <option value="[<?=$company['company_id']?>, <?=$company['type_id']?>]" <?=is_selected($invoice['company'], $company['company_id'])?> ><?=$company['company_name']?></option>
+                        <option value="<?=$company['company_id']?>,<?=$company['type_id']?>" <?=is_selected($invoice['company'], $company['company_id'])?> ><?=$company['company_name']?></option>
                     <?php endforeach ?>
                     </select>
                 </div>
