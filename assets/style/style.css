@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=ABeeZee&display=swap');
+
 body{
     height: 100%;
     background-color: white;
+    font-family: 'ABeeZee', sans-serif;
 }
 nav {
   margin-bottom: 5vh;
@@ -34,6 +37,10 @@ form {
     text-align: center;
 }
 
+label
+{
+  color: black;
+}
 
 
 /* Set height of body and the document to 100% to enable "full page tabs" */
