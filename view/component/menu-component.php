@@ -5,12 +5,12 @@
     </button>
     <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link" style="color:white" href="?page=home">Home<span class="sr-only"><?php $page ?></span></a>
-        <a class="nav-item nav-link" style="color:white" href="?page=invoices">Invoices</a>
-        <a class="nav-item nav-link" style="color:white" href="?page=compagnies">Compagnies</a>
-        <a class="nav-item nav-link" style="color:white" href="?page=contacts">Contacts</a>
+        <a class="nav-item nav-link item" style="color:white" href="?page=home">Home<span class="sr-only"><?php $page ?></span></a>
+        <a class="nav-item nav-link item" style="color:white" href="?page=invoices">Invoices</a>
+        <a class="nav-item nav-link item" style="color:white" href="?page=compagnies">Compagnies</a>
+        <a class="nav-item nav-link item" style="color:white" href="?page=contacts">Contacts</a>
         <div class="btn-group dropdown">
-        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white"><?=$_SESSION['username']?></button>
+        <button type="button" class="btn dropdown-toggle item" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white"><?=$_SESSION['username']?></button>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <?php if ($_SESSION['rights'] === 'god') :?>
           <a class="dropdown-item" href="?page=dashboard">Dashboard</a>
