@@ -7,5 +7,5 @@ if ($company) {
    delete_row('company', $id);
 }
 
-require 'view/compagnies-delete-view.php'; //not existe
+// require 'view/compagnies-delete-view.php'; //not existe
 ?>

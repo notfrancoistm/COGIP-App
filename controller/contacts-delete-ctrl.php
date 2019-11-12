@@ -7,5 +7,5 @@ if ($contact) {
    delete_row('contacts', $id);
 }
 
-require 'view/contacts-delete-view.php'; //not existe
+// require 'view/contacts-delete-view.php'; //not existe
 ?>
