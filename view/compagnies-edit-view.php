@@ -1,15 +1,15 @@
 <?php
 // dump($company);
-dump($id);
-dump($company_name);
-dump($vat_number);
-dump($country);
-dump($company_type);
+// dump($id);
+// dump($company_name);
+// dump($vat_number);
+// dump($country);
+// dump($company_type);
 
-dump($company_name__val);
-dump($vat_number__val);
-dump($country__val);
-dump($submit);
+// dump($company_name__val);
+// dump($vat_number__val);
+// dump($country__val);
+// dump($submit);
 
 ?>
 <div class="globalelement row justify-content-center">
