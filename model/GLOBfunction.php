@@ -33,7 +33,7 @@ function invoice_number_validation (string $input = ''): bool {
 }
 
 function vat_validation (string $input = ''): bool {
-   $pattern = '/^[A-Z]{2}[0-9]{5,10}$/';
+   $pattern = '/^[A-Za-z]{2}[0-9]{5,10}$/';
    return preg_match($pattern, ucfirst(trim($input))) ? true : false;
 }
 
