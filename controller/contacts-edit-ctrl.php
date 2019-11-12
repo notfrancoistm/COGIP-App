@@ -1,4 +1,4 @@
-<?
+<?php
 require 'model/contacts-edit-mdl.php';
 
 // get previous data to display on the inputs values
@@ -11,13 +11,20 @@ $first_name = $_POST['first_name'] ?? $contact['first_name'];
 $last_name = $_POST['last_name'] ?? $contact['last_name'];
 $email = $_POST['email'] ?? $contact['mail'];
 $contact_company = $_POST['company'] ?? $contact['company'];
-//$phone = $_POST['phone'] ?? $contact[''];
+$phone = $_POST['phone'] ?? $contact['phone'];
 
 // validate inputs
-
+$first_name__val = string_validation($first_name);
+$last_name__val = string_validation($last_name);
+$email__val = email_validation($email);
+$contact_company__val = id_validation($contact_company);
+$phone__val = phone_validation($phone);
+$submit = isset($_POST['submit']);
 
 // if all is valide update db
-//update_contact($id, $first_name, $last_name, $email, $company, $phone);
+if ($first_name__val AND $last_name__val AND $email__val AND $contact_company__val AND $phone__val AND $submit) {
+   update_contact($id, $first_name, $last_name, $email, $contact_company, $phone);
+}
 
 require 'view/contacts-edit-view.php';
 ?>

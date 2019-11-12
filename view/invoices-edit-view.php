@@ -18,16 +18,17 @@
                 </div>
 
                 <div class="form-group col-md-8">
-                    <label for=""></label>
-                    <select class="form-control" name="company" required>
+                    <label for="company">company</label>
+                    <select id="company" class="form-control" name="company" required>
                     <?php foreach($companies_data as $company) : ?>
-                        <option value="<?=$company['company_id']?>" <?=is_selected($invoice['company'], $company['company_id'])?> ><?=$company['company_name']?></option>
+                        <option value="[<?=$company['company_id']?>, <?=$company['type_id']?>]" <?=is_selected($invoice['company'], $company['company_id'])?> ><?=$company['company_name']?></option>
                     <?php endforeach ?>
                     </select>
                 </div>
 
                 <div class="form-group col-md-8">
-                    <select class="form-control" name="contact" required>
+                    <label for="contact">contact</label>
+                    <select id="contact" class="form-control" name="contact" required>
                     <?php foreach($contacts_data as $contact) : ?>
                         <option value="<?=$contact['contact_id']?>" <?=is_selected($invoice['contact'], $contact['contact_id'])?> ><?=$contact['full_name']?></option>
                     <?php endforeach ?>

@@ -22,7 +22,6 @@ dump($submit);
             <div class="row justify-content-center">
 
                 <div class="form-group col-md-8">
-
                     <label for="company_name">company</label>
                     <input class="form-control" name="company_name" value="<?=$company_name?>" id="company_name" type="text" placeholder="Name of the company" required autofocus>
                 </div>

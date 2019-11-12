@@ -82,6 +82,7 @@ function get_invoice_by_id ($id) {
       invoices.company,    
       company.company_name, 
       invoices.company_type,
+      type.id AS type_id,
       type.company_type,    
       invoices.contact,
       concat(contacts.first_name, ' ', contacts.last_name) AS contacts_full_name     
@@ -412,18 +413,18 @@ function update_contact ($id, string $first_name, string $last_name, string $ema
    $param = [
       'first_name' => $first_name,
       'last_name' => $last_name,
-      'mail' => $email,
+      'email' => $email,
       'company' => $company,
       'phone' => $phone,
       'id' => $id
    ];
 
    $sql = <<<SQL
-   UPDATE invoices
+   UPDATE contacts
    SET 
       first_name = :first_name, 
       last_name = :last_name,
-      email = :email,
+      mail = :email,
       company = :company,
       phone = :phone
    WHERE id = :id

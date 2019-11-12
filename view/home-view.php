@@ -17,12 +17,10 @@
                         <th scope="col">Date</th>
                         <th scope="col">Company</th>
                         <th scope="col">Type</th> 
-                        <th scope="col">Contact</th> 
-                        <?php if ($_SESSION['rights'] === 'god') :?>  
+                        <th scope="col">Contact</th>   
                         <th scope="col">Delete</th>
                         <th scope="col">Update</th>
-                        <th scope="col">Details</th>
-                        <?php endif ?>          
+                        <th scope="col">Details</th>          
                     </tr>
                 </thead>
                 <tbody>
@@ -63,11 +61,9 @@
                         <th scope="col">Phone</th>
                         <th scope="col">Email</th>
                         <th scope="col">Company</th>
-                        <?php if ($_SESSION['rights'] === 'god') :?>
                         <th scope="col">Delete</th>
                         <th scope="col">Update</th>
                         <th scope="col">Details</th>  
-                        <?php endif ?>
                     </tr>
                 </thead>
                 <tbody>
@@ -106,11 +102,9 @@
                         <th scope="col">VAT</th>
                         <th scope="col">Country</th>
                         <th scope="col">Type</th>
-                        <?php if ($_SESSION['rights'] === 'god') :?>
                         <th scope="col">Delete</th>
                         <th scope="col">Update</th>
                         <th scope="col">Details</th>  
-                        <?php endif ?>
                     </tr>
                 </thead>
                 <tbody>

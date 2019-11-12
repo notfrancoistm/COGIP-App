@@ -1,6 +1,12 @@
 <?php
-//dump($contact);
+dump($contact);
 // dump($companies_data[0]);
+dump($first_name__val);
+dump($last_name__val);
+dump($email__val);
+dump($contact_company__val);
+dump($phone__val);
+dump($submit);
 ?>
 <div class="globalelement row justify-content-center">
     <div class="card text-center col-md-4">

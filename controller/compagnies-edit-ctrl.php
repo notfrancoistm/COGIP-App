@@ -16,10 +16,11 @@ $company_type = $_POST['type'] ?? $company['type'];
 $company_name__val = string_validation($company_name);
 $vat_number__val = vat_validation($vat_number);
 $country__val = country_validation($country);
+$company_type__val = id_validation($company_type);
 $submit = isset($_POST['submit']);
 
 // if all is valide update db
-if ($company_name__val AND $vat_number__val AND $country__val AND $submit) {
+if ($company_name__val AND $vat_number__val AND $country__val AND $company_type__val AND $submit) {
    update_company($id, $company_name, $vat_number, $country, $company_type);
 }
 
